@@ -25,8 +25,10 @@ async function loadDiary() {
     let photoCount = 0;
 
     for (const day of days) {
+
         photoCount +=
             data.days[day].length;
+
     }
 
     const firstDay =
@@ -96,24 +98,24 @@ async function loadDiary() {
             };
 
             wrapper.appendChild(
-                checkbox,
+                checkbox
             );
 
             wrapper.appendChild(
-                img,
+                img
             );
 
             photos.appendChild(
-                wrapper,
+                wrapper
             );
         }
 
         section.appendChild(
-            photos,
+            photos
         );
 
         gallery.appendChild(
-            section,
+            section
         );
     }
 }
@@ -146,8 +148,12 @@ document
                     ".photo-check"
                 )
                 .forEach(
-                    checkbox =>
-                        checkbox.checked = true
+                    checkbox => {
+
+                        checkbox.checked =
+                            true;
+
+                    }
                 );
 
             updateSelectionCount();
@@ -167,8 +173,12 @@ document
                     ".photo-check"
                 )
                 .forEach(
-                    checkbox =>
-                        checkbox.checked = false
+                    checkbox => {
+
+                        checkbox.checked =
+                            false;
+
+                    }
                 );
 
             updateSelectionCount();
@@ -181,17 +191,16 @@ document
     )
     .addEventListener(
         "click",
-        () => {
+        async () => {
 
-            const count =
-                document
-                    .querySelectorAll(
-                        ".photo-check:checked"
-                    )
-                    .length;
+            const selected =
+                document.querySelectorAll(
+                    ".photo-check:checked"
+                );
 
             alert(
-                `Selected ${count} photos`
+                `PDF: ${selected.length} photos`
             );
+
         }
     );
