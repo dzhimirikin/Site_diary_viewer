@@ -1,10 +1,7 @@
 const projects = [
-    "err",
     "TEST1",
-    "TEST 2",
-    "TEST3",
-    "111",
-    "jkljkljlk"
+    "TEST2",
+    "TEST3"
 ];
 
 const container =
