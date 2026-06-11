@@ -2,6 +2,7 @@ const projects = [
     "err",
     "TEST1",
     "TEST 2",
+    "TEST3",
     "111",
     "jkljkljlk"
 ];
