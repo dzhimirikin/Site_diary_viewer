@@ -109,3 +109,21 @@ for (const file of data.days[day]) {
 }
 
 loadDiary();
+
+function updateSelectionCount() {
+
+    const count =
+        document.querySelectorAll(
+            ".photo-check:checked"
+        ).length;
+
+    console.log(
+        "Selected:",
+        count
+    );
+
+    document.getElementById(
+        "selection-info"
+    ).textContent =
+        `Selected: ${count} photos`;
+}
