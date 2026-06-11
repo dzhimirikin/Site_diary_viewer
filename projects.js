@@ -1,7 +1,7 @@
 const projects = [
-    "ERR",
+    "err",
     "TEST1",
-    "TEST2",
+    "TEST 2",
     "111",
     "jkljkljlk"
 ];
