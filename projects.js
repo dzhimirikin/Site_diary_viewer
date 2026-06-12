@@ -1,5 +1,5 @@
 const projects = [
-    "TEST0"
+    "TEST_01"
 ];
 
 const container =
