@@ -1,0 +1,23 @@
+{
+  "project": "TEST_2029_MULTIPAGE",
+  "days": {
+    "2025-03-23": [
+      {
+        "file": "IMG_20250323_110957.webp",
+        "comment": "",
+        "facadeId": 0,
+        "elementId": 0,
+        "operationId": 0,
+        "contractorId": 0
+      },
+      {
+        "file": "IMG_20250323_111621.webp",
+        "comment": "",
+        "facadeId": 0,
+        "elementId": 0,
+        "operationId": 0,
+        "contractorId": 0
+      }
+    ]
+  }
+}
