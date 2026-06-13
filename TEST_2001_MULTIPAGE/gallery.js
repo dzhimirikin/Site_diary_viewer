@@ -432,6 +432,8 @@ const totalPages =
 let i = 0;
 let page = 1;
 
+let hasErrors = false;
+
 while (
     i < photos.length
 ) {
@@ -725,15 +727,7 @@ if (
             "comment-error"
         );
 
-    alert(
-        "One or more comments exceed "
-        + "the maximum size of 55 PDF lines.\n\n"
-        + "The photo and comment field "
-        + "containing the error have "
-        + "been highlighted in red."
-    );
-
-    return;
+    hasErrors = true;
 }
 
     pdf.text(
@@ -809,6 +803,21 @@ const now =
             0,
             10
         );
+
+if (
+    hasErrors
+) {
+
+    alert(
+        "One or more comments exceed "
+        + "the maximum limit of 55 PDF lines.\n\n"
+        + "The photos and comments "
+        + "containing errors have "
+        + "been highlighted in red."
+    );
+
+    return;
+}
 
 pdf.save(
     `${project}_${now}.pdf`
