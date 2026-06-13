@@ -996,22 +996,29 @@ document
         }
     );
 
+let currentTextarea =
+    null;
+
+
+
 function openCommentEditor(
     sourceTextarea
 ) {
 
-    const text =
-        prompt(
-            "Edit comment:",
-            sourceTextarea.value
-        );
+    currentTextarea =
+        sourceTextarea;
 
-    if (
-        text === null
-    ) {
-        return;
-    }
+    document
+        .getElementById(
+            "editor-text"
+        )
+        .value =
+            sourceTextarea.value;
 
-    sourceTextarea.value =
-        text;
+    document
+        .getElementById(
+            "editor-modal"
+        )
+        .style.display =
+            "flex";
 }
