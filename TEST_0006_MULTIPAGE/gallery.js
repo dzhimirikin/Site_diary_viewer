@@ -1072,3 +1072,68 @@ document
         "click",
         closeCommentEditor
     );
+
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+const modal =
+    document.getElementById(
+        "editor-window"
+    );
+
+const header =
+    document.getElementById(
+        "editor-header"
+    );
+
+header.addEventListener(
+    "mousedown",
+    e => {
+
+        isDragging = true;
+
+        offsetX =
+            e.clientX -
+            modal.offsetLeft;
+
+        offsetY =
+            e.clientY -
+            modal.offsetTop;
+    }
+);
+
+document.addEventListener(
+    "mousemove",
+    e => {
+
+        if (!isDragging)
+            return;
+
+        modal.style.left =
+            (e.clientX - offsetX)
+            + "px";
+
+        modal.style.top =
+            (e.clientY - offsetY)
+            + "px";
+    }
+);
+
+document.addEventListener(
+    "mouseup",
+    () => {
+
+        isDragging = false;
+    }
+);
+
+document
+    .getElementById(
+        "editor-close"
+    )
+    .addEventListener(
+        "click",
+        closeCommentEditor
+    );
