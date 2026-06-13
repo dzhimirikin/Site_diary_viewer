@@ -1,5 +1,5 @@
 const projects = [
-    "TEST_1122_MULTIPAGE"
+    "TEST_1125_MULTIPAGE"
 ];
 
 const container =
