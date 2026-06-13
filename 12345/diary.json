@@ -1,0 +1,23 @@
+{
+  "project": "12345",
+  "days": {
+    "2025-03-23": [
+      {
+        "file": "IMG_20250323_125918.webp",
+        "comment": "test1",
+        "facadeId": 0,
+        "elementId": 0,
+        "operationId": 0,
+        "contractorId": 0
+      },
+      {
+        "file": "IMG_20250323_130039.webp",
+        "comment": "test2",
+        "facadeId": 0,
+        "elementId": 0,
+        "operationId": 0,
+        "contractorId": 0
+      }
+    ]
+  }
+}
