@@ -414,33 +414,32 @@ while (
     i < photos.length
 ) {
 
-const firstWrapper =
-    photos[i]
-        .parentElement;
-
-const secondWrapper =
-    i + 1 < photos.length
-        ? photos[i + 1]
-            .parentElement
-        : null;
-
-const comment1 =
-    firstWrapper
-        .querySelector(
-            ".photo-comment"
-        )
-        ?.value || "";
-
-const comment2 =
-    secondWrapper
-        ?.querySelector(
-            ".photo-comment"
-        )
-        ?.value || "";
+const testPhotos =
+    photos.slice(
+        i,
+        i + 4
+    );
 
 const hasComments =
-    comment1.trim() !== "" ||
-    comment2.trim() !== "";
+    testPhotos.some(
+        photo => {
+
+            const wrapper =
+                photo.parentElement;
+
+            const comment =
+                wrapper
+                    .querySelector(
+                        ".photo-comment"
+                    )
+                    ?.value || "";
+
+            return (
+                comment.trim() !== ""
+            );
+
+        }
+    );
 
 let pagePhotos;
 let positions;
@@ -687,20 +686,18 @@ if (
             cellW - 4
         );
 
-    if (
-        lines.length > 55
-    ) {
+if (
+    lines.length > 55
+) {
 
-        lines =
-            lines.slice(
-                0,
-                55
-            );
+    alert(
+        `Комментарий к файлу ${fileName}\n` +
+        `содержит ${lines.length} строк.\n` +
+        `Максимум: 55 строк.`
+    );
 
-        lines.push(
-            "..."
-        );
-    }
+    return;
+}
 
     pdf.text(
         lines,
