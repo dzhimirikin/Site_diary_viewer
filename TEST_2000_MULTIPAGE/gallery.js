@@ -232,8 +232,11 @@ textarea.dataset.day =
 textarea.dataset.file =
     file;
 
+const project =
+    data.project;
+
 const storageKey =
-    `${day}_${file}`;
+    `${project}_${day}_${file}`;
 
 const savedComment =
     localStorage.getItem(
@@ -340,6 +343,25 @@ document
     .addEventListener(
         "click",
         async () => {
+
+            document
+                .querySelectorAll(
+                    ".pdf-error"
+                )
+                .forEach(
+                    e => e.classList.remove(
+                        "pdf-error"
+                    )
+                );
+
+            document
+                .querySelectorAll(
+                    ".comment-error"
+                )            .forEach(
+                    e => e.classList.remove(
+                        "comment-error"
+                    )
+                );
 
             const selected =
                 document.querySelectorAll(
@@ -690,10 +712,25 @@ if (
     lines.length > 55
 ) {
 
+    img.classList.add(
+        "pdf-error"
+    );
+
+    wrapper
+        .querySelector(
+            ".photo-comment"
+        )
+        .classList
+        .add(
+            "comment-error"
+        );
+
     alert(
-        `Комментарий к файлу ${fileName}\n` +
-        `содержит ${lines.length} строк.\n` +
-        `Максимум: 55 строк.`
+        "One or more comments exceed "
+        + "the maximum size of 55 PDF lines.\n\n"
+        + "The photo and comment field "
+        + "containing the error have "
+        + "been highlighted in red."
     );
 
     return;
@@ -797,8 +834,15 @@ document
         .forEach(
             textarea => {
 
+                const project =
+                    document
+                        .getElementById(
+                            "project-title"
+                        )
+                        .textContent;
+
                 const key =
-                    `${textarea.dataset.day}_${textarea.dataset.file}`;
+                    `${project}_${textarea.dataset.day}_${textarea.dataset.file}`;
 
                 localStorage.setItem(
                     key,
