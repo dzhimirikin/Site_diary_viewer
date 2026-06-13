@@ -1022,3 +1022,53 @@ function openCommentEditor(
         .style.display =
             "flex";
 }
+
+
+function closeCommentEditor() {
+
+    document
+        .getElementById(
+            "editor-modal"
+        )
+        .style.display =
+            "none";
+
+    currentTextarea =
+        null;
+}
+
+
+
+function saveCommentEditor() {
+
+    if (!currentTextarea)
+        return;
+
+    currentTextarea.value =
+        document
+            .getElementById(
+                "editor-text"
+            )
+            .value;
+
+    closeCommentEditor();
+}
+
+document
+    .getElementById(
+        "editor-save"
+    )
+    .addEventListener(
+        "click",
+        saveCommentEditor
+    );
+
+
+document
+    .getElementById(
+        "editor-cancel"
+    )
+    .addEventListener(
+        "click",
+        closeCommentEditor
+    );
