@@ -216,6 +216,9 @@ async function loadDiary() {
             const comment =
                 photo.comment || "";
 
+            const project =
+                data.project;
+
             const wrapper =
                 document.createElement("div");
 
@@ -308,9 +311,6 @@ textarea.dataset.day =
 
 textarea.dataset.file =
     file;
-
-const project =
-    data.project;
 
 const storageKey =
     `${project}_${day}_${file}`;
