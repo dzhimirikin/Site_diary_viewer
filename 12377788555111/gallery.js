@@ -1114,7 +1114,7 @@ function closeCommentEditor() {
 
 
 
-function saveCommentEditor() {
+async function saveCommentEditor() {
 
     if (!currentTextarea)
         return;
@@ -1133,7 +1133,7 @@ const project =
         )
         .textContent;
 
-savePhotoData(
+await savePhotoData(
     project,
     currentTextarea.dataset.file,
     {
@@ -1145,7 +1145,8 @@ savePhotoData(
     }
 );
 
-    closeCommentEditor();
+closeCommentEditor();
+
 }
 
 document
@@ -1232,22 +1233,55 @@ document
         closeCommentEditor
     );
 
+
+
+
 document
     .getElementById(
         "editor-modal"
     )
     .addEventListener(
         "click",
-        e => {
+        async e => {
+
+            console.log(
+                "MODAL CLICK:",
+                e.target.id
+            );
 
             if (
                 e.target.id ===
                 "editor-modal"
             ) {
 
-                saveCommentEditor();
+                console.log(
+                    "SAVE BY OUTSIDE CLICK"
+                );
+
+                await saveCommentEditor();
 
             }
 
         }
     );
+
+
+//document
+//    .getElementById(
+//        "editor-modal"
+//    )
+//   .addEventListener(
+//        "click",
+//        async e => {
+//
+//            if (
+//                e.target.id ===
+//                "editor-modal"
+//            ) {
+//
+//                await saveCommentEditor();
+//
+//            }
+//
+//       }
+//    );
