@@ -314,6 +314,12 @@ textarea.addEventListener(
     "blur",
     async () => {
 
+        console.log(
+            "BLUR SAVE:",
+            textarea.dataset.file,
+            textarea.value
+        );
+
         const project =
             document
                 .getElementById(
