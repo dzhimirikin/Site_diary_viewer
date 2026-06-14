@@ -93,8 +93,8 @@ async function loadPhotoData(
 ) {
 
 const ref =
-    window.doc(
-        window.db,
+    window.firebaseApi.doc(
+        window.firebaseApi.db,
         "projects",
         project,
         "photos",
@@ -102,7 +102,7 @@ const ref =
     );
 
 const snap =
-    await window.getDoc(
+    await window.firebaseApi.getDoc(
         ref
     );
 
@@ -124,26 +124,28 @@ async function savePhotoData(
 ) {
 
 const ref =
-    window.doc(
-        window.db,
+    window.firebaseApi.doc(
+        window.firebaseApi.db,
         "projects",
         project,
         "photos",
         file
     );
 
-    await window.setDoc(
-        ref,
-        {
-            ...data,
+await window.firebaseApi.setDoc(
+    ref,
+    {
+        ...data,
 
-            updatedAt:
-                window.serverTimestamp()
-        },
-        {
-            merge: true
-        }
-    );
+        updatedAt:
+            window.firebaseApi
+                .serverTimestamp()
+    },
+    {
+        merge: true
+    }
+);
+
 }
 
 async function loadDiary() {

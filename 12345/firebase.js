@@ -50,3 +50,16 @@ window.getDoc = getDoc;
 window.setDoc = setDoc;
 window.serverTimestamp =
     serverTimestamp;
+
+window.firebaseApi = {
+
+    db,
+
+    doc,
+
+    getDoc,
+
+    setDoc,
+
+    serverTimestamp
+};
