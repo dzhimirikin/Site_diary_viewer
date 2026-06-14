@@ -1231,3 +1231,23 @@ document
         "click",
         closeCommentEditor
     );
+
+document
+    .getElementById(
+        "editor-modal"
+    )
+    .addEventListener(
+        "click",
+        e => {
+
+            if (
+                e.target.id ===
+                "editor-modal"
+            ) {
+
+                saveCommentEditor();
+
+            }
+
+        }
+    );
