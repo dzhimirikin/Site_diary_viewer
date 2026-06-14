@@ -310,55 +310,6 @@ textarea.dataset.day =
 textarea.dataset.file =
     file;
 
-console.log(
-    "ADD BLUR:",
-    file
-);
-
-textarea.addEventListener(
-    "blur",
-    () => {
-
-        console.log(
-            "BLUR:",
-            file
-        );
-
-    }
-);
-
-textarea.addEventListener(
-    "blur",
-    async () => {
-
-        console.log(
-            "BLUR SAVE:",
-            textarea.dataset.file,
-            textarea.value
-        );
-
-        const project =
-            document
-                .getElementById(
-                    "project-title"
-                )
-                .textContent;
-
-        await savePhotoData(
-            project,
-            textarea.dataset.file,
-            {
-                day:
-                    textarea.dataset.day,
-
-                comment:
-                    textarea.value
-            }
-        );
-
-    }
-);
-
 const storageKey =
     `${project}_${day}_${file}`;
 
@@ -1163,7 +1114,7 @@ function closeCommentEditor() {
 
 
 
-async function saveCommentEditor() {
+function saveCommentEditor() {
 
     if (!currentTextarea)
         return;
@@ -1182,7 +1133,7 @@ const project =
         )
         .textContent;
 
-await savePhotoData(
+savePhotoData(
     project,
     currentTextarea.dataset.file,
     {
@@ -1194,8 +1145,7 @@ await savePhotoData(
     }
 );
 
-closeCommentEditor();
-
+    closeCommentEditor();
 }
 
 document
@@ -1280,31 +1230,4 @@ document
     .addEventListener(
         "click",
         closeCommentEditor
-    );
-
-
-document
-    .getElementById(
-        "editor-modal"
-    )
-    .addEventListener(
-        "mousedown",
-        async e => {
-
-            const windowEl =
-                document.getElementById(
-                    "editor-window"
-                );
-
-            if (
-                !windowEl.contains(
-                    e.target
-                )
-            ) {
-
-                await saveCommentEditor();
-
-            }
-
-        }
     );
