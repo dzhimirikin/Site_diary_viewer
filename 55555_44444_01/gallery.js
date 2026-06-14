@@ -87,35 +87,7 @@ let isAdmin = false;
 const ADMIN_PASSWORD =
     "0000";
 
-async function loadPhotoData(
-    project,
-    file
-) {
 
-const ref =
-    window.firebaseApi.doc(
-        window.firebaseApi.db,
-        "projects",
-        project,
-        "photos",
-        file
-    );
-
-const snap =
-    await window.firebaseApi.getDoc(
-        ref
-    );
-
-    if (
-        snap.exists()
-    ) {
-
-        return snap.data();
-
-    }
-
-    return null;
-}
 
 async function savePhotoData(
     project,
@@ -123,36 +95,57 @@ async function savePhotoData(
     data
 ) {
 
-const ref =
-    window.firebaseApi.doc(
-        window.firebaseApi.db,
-        "projects",
-        project,
-        "photos",
-        file
+    // Создаем документ проекта,
+    // если его еще нет
+
+    await window.firebaseApi.setDoc(
+        window.firebaseApi.doc(
+            window.firebaseApi.db,
+            "projects",
+            project
+        ),
+        {
+            project: project,
+
+            updatedAt:
+                window.firebaseApi
+                    .serverTimestamp()
+        },
+        {
+            merge: true
+        }
     );
 
+    // Документ фотографии
 
-await window.firebaseApi.setDoc(
-    ref,
-    {
-        facadeId: 0,
-        elementId: 0,
-        operationId: 0,
-        contractorId: 0,
+    const ref =
+        window.firebaseApi.doc(
+            window.firebaseApi.db,
+            "projects",
+            project,
+            "photos",
+            file
+        );
 
-        ...data,
+    await window.firebaseApi.setDoc(
+        ref,
+        {
+            facadeId: 0,
+            elementId: 0,
+            operationId: 0,
+            contractorId: 0,
 
-        updatedAt:
-            window.firebaseApi
-                .serverTimestamp()
-    },
-    {
-        merge: true
-    }
-);
+            ...data,
 
-} 
+            updatedAt:
+                window.firebaseApi
+                    .serverTimestamp()
+        },
+        {
+            merge: true
+        }
+    );
+}
 
 
 async function loadDiary() {
