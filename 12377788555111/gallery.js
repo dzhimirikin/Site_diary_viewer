@@ -310,6 +310,32 @@ textarea.dataset.day =
 textarea.dataset.file =
     file;
 
+textarea.addEventListener(
+    "blur",
+    async () => {
+
+        const project =
+            document
+                .getElementById(
+                    "project-title"
+                )
+                .textContent;
+
+        await savePhotoData(
+            project,
+            textarea.dataset.file,
+            {
+                day:
+                    textarea.dataset.day,
+
+                comment:
+                    textarea.value
+            }
+        );
+
+    }
+);
+
 const storageKey =
     `${project}_${day}_${file}`;
 
