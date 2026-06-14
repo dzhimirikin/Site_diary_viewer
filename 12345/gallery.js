@@ -210,13 +210,9 @@ async function loadDiary() {
         photos.className =
             "photos";
 
-        for (const photo of data.days[day]) {
+for (const file of data.days[day]) {
 
-            const file =
-                photo.file;
-
-            const comment =
-                photo.comment || "";
+    const comment = "";
 
             const project =
                 data.project;
