@@ -282,27 +282,11 @@ async function loadDiary() {
 textarea.value =
     comment;
 
-// Отладочный код
-
-console.log(
-    "LOAD:",
-    project,
-    file
-);
-
-// Отладочный код
-
 loadPhotoData(
     project,
     file
 ).then(
     cloud => {
-
-        console.log(
-            "CLOUD:",
-            file,
-            cloud
-        );
 
         if (
             cloud
@@ -315,24 +299,6 @@ loadPhotoData(
 
     }
 );
-
-//loadPhotoData(
-//    project,
-//    file
-//).then(
-//    cloud => {
-//
-//        if (
-//            cloud
-//        ) {
-//
-//            textarea.value =
-//                cloud.comment || "";
-//
-//        }
-//
-//    }
-//);
 
 textarea.readOnly =
     !isAdmin;
