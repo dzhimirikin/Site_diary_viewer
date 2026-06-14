@@ -172,34 +172,7 @@ h1 {
     cursor: move;
 
     user-select: none;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
 }
-
-
-#editor-close {
-
-    background: transparent;
-
-    border: none;
-
-    color: white;
-
-    font-size: 24px;
-
-    cursor: pointer;
-
-    width: 28px;
-
-    height: 28px;
-
-    padding: 0;
-}
-
 
 #editor-text {
 
