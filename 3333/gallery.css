@@ -172,7 +172,34 @@ h1 {
     cursor: move;
 
     user-select: none;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
 }
+
+
+#editor-close {
+
+    background: transparent;
+
+    border: none;
+
+    color: white;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    width: 28px;
+
+    height: 28px;
+
+    padding: 0;
+}
+
 
 #editor-text {
 
@@ -207,4 +234,89 @@ h1 {
 
     border-top:
         1px solid #ddd;
+}
+
+
+#photo-viewer {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.95
+        );
+
+    z-index: 20000;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+#viewer-image {
+
+    max-width: 95vw;
+
+    max-height: 95vh;
+
+    object-fit: contain;
+}
+
+#viewer-prev,
+#viewer-next,
+#viewer-close {
+
+    position: absolute;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.2
+        );
+
+    color: white;
+
+    border: none;
+
+    cursor: pointer;
+
+    padding: 12px;
+
+    font-size: 32px;
+}
+
+#viewer-prev {
+
+    left: 20px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+#viewer-next {
+
+    right: 20px;
+
+    top: 50%;
+
+    transform:
+        translateY(-50%);
+}
+
+#viewer-close {
+
+    top: 20px;
+
+    right: 20px;
 }

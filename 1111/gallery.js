@@ -84,6 +84,12 @@ function drawTitleBlock(
 
 let isAdmin = false;
 
+
+let currentPhotos = [];
+
+let currentIndex = 0;
+
+
 const ADMIN_PASSWORD =
     "0000";
 
@@ -122,25 +128,6 @@ async function savePhotoData(
     file,
     data
 ) {
-
-    // Создать документ проекта
-    await window.firebaseApi.setDoc(
-        window.firebaseApi.doc(
-            window.firebaseApi.db,
-            "projects",
-            project
-        ),
-        {
-            project: project,
-
-            updatedAt:
-                window.firebaseApi
-                    .serverTimestamp()
-        },
-        {
-            merge: true
-        }
-    );
 
     const ref =
         window.firebaseApi.doc(
@@ -1149,6 +1136,73 @@ document
 let currentTextarea =
     null;
 
+function showPhoto() {
+
+    document
+        .getElementById(
+            "viewer-image"
+        )
+        .src =
+            currentPhotos[
+                currentIndex
+            ];
+}
+
+function openViewer(
+    photos,
+    index
+) {
+
+    currentPhotos =
+        photos;
+
+    currentIndex =
+        index;
+
+    showPhoto();
+
+    document
+        .getElementById(
+            "photo-viewer"
+        )
+        .style.display =
+            "flex";
+}
+
+function closeViewer() {
+
+    document
+        .getElementById(
+            "photo-viewer"
+        )
+        .style.display =
+            "none";
+}
+
+function nextPhoto() {
+
+    if (
+        currentIndex <
+        currentPhotos.length - 1
+    ) {
+
+        currentIndex++;
+
+        showPhoto();
+    }
+}
+
+function prevPhoto() {
+
+    if (
+        currentIndex > 0
+    ) {
+
+        currentIndex--;
+
+        showPhoto();
+    }
+}
 
 
 function openCommentEditor(
@@ -1333,4 +1387,31 @@ document
             }
 
         }
+    );
+
+document
+    .getElementById(
+        "viewer-prev"
+    )
+    .addEventListener(
+        "click",
+        prevPhoto
+    );
+
+document
+    .getElementById(
+        "viewer-next"
+    )
+    .addEventListener(
+        "click",
+        nextPhoto
+    );
+
+document
+    .getElementById(
+        "viewer-close"
+    )
+    .addEventListener(
+        "click",
+        closeViewer
     );
