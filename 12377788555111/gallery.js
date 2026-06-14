@@ -310,6 +310,23 @@ textarea.dataset.day =
 textarea.dataset.file =
     file;
 
+console.log(
+    "ADD BLUR:",
+    file
+);
+
+textarea.addEventListener(
+    "blur",
+    () => {
+
+        console.log(
+            "BLUR:",
+            file
+        );
+
+    }
+);
+
 textarea.addEventListener(
     "blur",
     async () => {
