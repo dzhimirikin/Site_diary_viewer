@@ -258,14 +258,40 @@ for (const file of data.days[day]) {
 
             img.dataset.day = day;
 
-            img.onclick = () => {
+img.onclick = () => {
 
-                window.open(
-                    `diary/${day}/full/${file}`,
-                    "_blank"
-                );
+    const allPhotos = [];
 
-            };
+    for (
+        const d of days
+    ) {
+
+        for (
+            const f of data.days[d]
+        ) {
+
+            allPhotos.push(
+                `diary/${d}/full/${f}`
+            );
+
+        }
+
+    }
+
+    const currentPhoto =
+        `diary/${day}/full/${file}`;
+
+    const index =
+        allPhotos.indexOf(
+            currentPhoto
+        );
+
+    openViewer(
+        allPhotos,
+        index
+    );
+
+};
 
             wrapper.appendChild(
                 checkbox
