@@ -1234,29 +1234,24 @@ document
     );
 
 
-
-
 document
     .getElementById(
         "editor-modal"
     )
     .addEventListener(
-        "click",
+        "mousedown",
         async e => {
 
-            console.log(
-                "MODAL CLICK:",
-                e.target.id
-            );
+            const windowEl =
+                document.getElementById(
+                    "editor-window"
+                );
 
             if (
-                e.target.id ===
-                "editor-modal"
+                !windowEl.contains(
+                    e.target
+                )
             ) {
-
-                console.log(
-                    "SAVE BY OUTSIDE CLICK"
-                );
 
                 await saveCommentEditor();
 
@@ -1264,24 +1259,3 @@ document
 
         }
     );
-
-
-//document
-//    .getElementById(
-//        "editor-modal"
-//    )
-//   .addEventListener(
-//        "click",
-//        async e => {
-//
-//            if (
-//                e.target.id ===
-//                "editor-modal"
-//            ) {
-//
-//                await saveCommentEditor();
-//
-//            }
-//
-//       }
-//    );
