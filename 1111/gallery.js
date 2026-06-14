@@ -1207,27 +1207,32 @@ function closeViewer() {
 
 function nextPhoto() {
 
+    currentIndex++;
+
     if (
-        currentIndex <
-        currentPhotos.length - 1
+        currentIndex >=
+        currentPhotos.length
     ) {
 
-        currentIndex++;
-
-        showPhoto();
+        currentIndex = 0;
     }
+
+    showPhoto();
 }
 
 function prevPhoto() {
 
+    currentIndex--;
+
     if (
-        currentIndex > 0
+        currentIndex < 0
     ) {
 
-        currentIndex--;
-
-        showPhoto();
+        currentIndex =
+            currentPhotos.length - 1;
     }
+
+    showPhoto();
 }
 
 
@@ -1440,4 +1445,69 @@ document
     .addEventListener(
         "click",
         closeViewer
+    );
+
+
+document.addEventListener(
+    "keydown",
+    e => {
+
+        const viewer =
+            document.getElementById(
+                "photo-viewer"
+            );
+
+        if (
+            viewer.style.display !==
+            "flex"
+        ) {
+
+            return;
+        }
+
+        if (
+            e.key ===
+            "ArrowLeft"
+        ) {
+
+            prevPhoto();
+        }
+
+        if (
+            e.key ===
+            "ArrowRight"
+        ) {
+
+            nextPhoto();
+        }
+
+        if (
+            e.key ===
+            "Escape"
+        ) {
+
+            closeViewer();
+        }
+
+    }
+);
+
+
+document
+    .getElementById(
+        "photo-viewer"
+    )
+    .addEventListener(
+        "click",
+        e => {
+
+            if (
+                e.target.id ===
+                "photo-viewer"
+            ) {
+
+                closeViewer();
+            }
+
+        }
     );
