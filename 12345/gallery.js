@@ -92,19 +92,19 @@ async function loadPhotoData(
     file
 ) {
 
-    const ref =
-        doc(
-            db,
-            "projects",
-            project,
-            "photos",
-            file
-        );
+const ref =
+    window.doc(
+        window.db,
+        "projects",
+        project,
+        "photos",
+        file
+    );
 
-    const snap =
-        await getDoc(
-            ref
-        );
+const snap =
+    await window.getDoc(
+        ref
+    );
 
     if (
         snap.exists()
@@ -123,22 +123,22 @@ async function savePhotoData(
     data
 ) {
 
-    const ref =
-        doc(
-            db,
-            "projects",
-            project,
-            "photos",
-            file
-        );
+const ref =
+    window.doc(
+        window.db,
+        "projects",
+        project,
+        "photos",
+        file
+    );
 
-    await setDoc(
+    await window.setDoc(
         ref,
         {
             ...data,
 
             updatedAt:
-                serverTimestamp()
+                window.serverTimestamp()
         },
         {
             merge: true
