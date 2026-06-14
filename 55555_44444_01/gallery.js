@@ -152,6 +152,8 @@ await window.firebaseApi.setDoc(
     }
 );
 
+} 
+
 
 async function loadDiary() {
 
