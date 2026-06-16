@@ -125,7 +125,7 @@ pdf.text(
 
 pdf.text(
     projectInfo.object || "",
-    x0 + 18,
+    x0 + 14,
     y0 + 13
 );
 
@@ -138,59 +138,59 @@ pdf.text(
 
 pdf.text(
     projectInfo.client || "",
-    x0 + 15,
+    x0 + 14,
     y0 + 19
 );
 
 // Project manager
 pdf.text(
     "Proj. manager",
-    x0 + 49,
+    x0 + 48,
     y0 + 19
 );
 
 pdf.text(
     projectInfo.projectManager || "",
-    x0 + 64,
+    x0 + 65,
     y0 + 19
 );
 
 // Head designer
 pdf.text(
     "Head designer",
-    x0 + 49,
+    x0 + 48,
     y0 + 22.5
 );
 
 pdf.text(
     projectInfo.headDesigner || "",
-    x0 + 64,
+    x0 + 65,
     y0 + 22.5
 );
 
 // Reviewed by
 pdf.text(
     "Reviewed by",
-    x0 + 49,
+    x0 + 48,
     y0 + 26
 );
 
 pdf.text(
     projectInfo.reviewedBy || "",
-    x0 + 64,
+    x0 + 65,
     y0 + 26
 );
 
 // Designer
 pdf.text(
     "Designer",
-    x0 + 49,
+    x0 + 48,
     y0 + 29.5
 );
 
 pdf.text(
     projectInfo.designer1 || "",
-    x0 + 64,
+    x0 + 65,
     y0 + 29.5
 );
 
@@ -203,7 +203,7 @@ pdf.text(
 
 pdf.text(
     projectInfo.name || "",
-    x0 + 18,
+    x0 + 14,
     y0 + 29.5
 );
 
@@ -1504,10 +1504,15 @@ function openCommentEditor(
         )
         .style.display =
             "flex";
+
+    loadEditorState();
+
 }
 
 
 function closeCommentEditor() {
+
+    saveEditorState();
 
     document
         .getElementById(
@@ -1627,6 +1632,14 @@ document.addEventListener(
 document.addEventListener(
     "mouseup",
     () => {
+
+        if (
+            isDragging
+        ) {
+
+            saveEditorState();
+
+        }
 
         isDragging = false;
     }
