@@ -9,5 +9,7 @@ var callAddFont = function () {
 this.addFileToVFS('isocpeui-italic.ttf', font);
 this.addFont('isocpeui-italic.ttf', 'isocpeui', 'italic');
 };
-jsPDF.API.events.push(['addFonts', callAddFont])
+window.jspdf.jsPDF.API.events.push(
+    ['addFonts', callAddFont]
+);
 })));

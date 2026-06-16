@@ -9,5 +9,7 @@ var callAddFont = function () {
 this.addFileToVFS('isocpeur-normal.ttf', font);
 this.addFont('isocpeur-normal.ttf', 'isocpeur', 'normal');
 };
-jsPDF.API.events.push(['addFonts', callAddFont])
+window.jspdf.jsPDF.API.events.push(
+    ['addFonts', callAddFont]
+);
 })));
