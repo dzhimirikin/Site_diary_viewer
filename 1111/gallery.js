@@ -41,6 +41,16 @@ if (logoImage) {
 
 }
 
+
+pdf.setFont(
+    "courier",
+    "italic"
+);
+
+pdf.setFontSize(
+    7
+);
+
     // Горизонтали
     pdf.line(
         x0,
@@ -106,9 +116,115 @@ if (logoImage) {
         y0 + 31
     );
 
+// Object
+pdf.text(
+    "Object:",
+    x0 + 1,
+    y0 + 13
+);
+
+pdf.text(
+    projectInfo.object || "",
+    x0 + 18,
+    y0 + 13
+);
+
+// Client
+pdf.text(
+    "Client",
+    x0 + 1,
+    y0 + 19
+);
+
+pdf.text(
+    projectInfo.client || "",
+    x0 + 15,
+    y0 + 19
+);
+
+// Project manager
+pdf.text(
+    "Proj. manager",
+    x0 + 49,
+    y0 + 19
+);
+
+pdf.text(
+    projectInfo.projectManager || "",
+    x0 + 66,
+    y0 + 19
+);
+
+// Head designer
+pdf.text(
+    "Head designer",
+    x0 + 49,
+    y0 + 22.5
+);
+
+pdf.text(
+    projectInfo.headDesigner || "",
+    x0 + 66,
+    y0 + 22.5
+);
+
+// Reviewed by
+pdf.text(
+    "Reviewed by",
+    x0 + 49,
+    y0 + 26
+);
+
+pdf.text(
+    projectInfo.reviewedBy || "",
+    x0 + 66,
+    y0 + 26
+);
+
+// Designer
+pdf.text(
+    "Designer",
+    x0 + 49,
+    y0 + 29.5
+);
+
+pdf.text(
+    projectInfo.designer1 || "",
+    x0 + 66,
+    y0 + 29.5
+);
+
+// Drawing
+pdf.text(
+    "Drawing:",
+    x0 + 1,
+    y0 + 29.5
+);
+
+pdf.text(
+    projectInfo.name || "",
+    x0 + 18,
+    y0 + 29.5
+);
+
+// Scale
+pdf.text(
+    "Scale:",
+    x0 + 82,
+    y0 + 29.5
+);
+
+pdf.text(
+    projectInfo.scale || "",
+    x0 + 92,
+    y0 + 29.5
+);
+
 }
 
 let logoImage = null;
+
+let projectInfo = {};
 
 let isAdmin = false;
 
@@ -530,9 +646,44 @@ async function loadLogo() {
 
 }
 
-loadLogo();
+async function loadProjectInfo() {
 
-loadDiary();
+    try {
+
+        const response =
+            await fetch(
+                "project.json"
+            );
+
+        projectInfo =
+            await response.json();
+
+        console.log(
+            "Project loaded:",
+            projectInfo
+        );
+
+    } catch (e) {
+
+        console.log(
+            "Project not found:",
+            e
+        );
+
+        projectInfo = {};
+    }
+
+}
+
+(async () => {
+
+    await loadLogo();
+
+    await loadProjectInfo();
+
+    await loadDiary();
+
+})();
 
 document
     .getElementById(

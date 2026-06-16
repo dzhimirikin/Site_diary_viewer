@@ -1,21 +1,12 @@
 {
-"version": 1,
-
-"name": "KMU Site A",
-
-"object": "Tallinn Office Building",
-
-"customer": "ABC Developer",
-
-"location": "Tallinn",
-
-"company": "My Engineering",
-
-"author": "Dmitry",
-
-"revision": "A",
-
-"logo": "logo.png",
-
-"created": "2026-06-16"
+  "version": 1,
+  "name": "1111",
+  "object": "Test object",
+  "client": "ABC Developer",
+  "projectManager": "Dmitry",
+  "headDesigner": "Engineer",
+  "reviewedBy": "QA",
+  "designer1": "Designer",
+  "scale": "NTS",
+  "logo": "logo.png"
 }
