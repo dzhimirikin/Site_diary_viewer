@@ -565,7 +565,7 @@ const expandButton =
     );
 
 expandButton.textContent =
-    "⛶";
+    "✎";
 
 expandButton.className =
     "expand-comment";
@@ -1461,6 +1461,16 @@ function saveEditorState() {
         editor.style.top
     );
 
+    localStorage.setItem(
+        "editor-width",
+        editor.style.width
+    );
+
+    localStorage.setItem(
+        "editor-height",
+        editor.style.height
+    );
+
 }
 
 
@@ -1480,6 +1490,16 @@ function loadEditorState() {
         localStorage.getItem(
             "editor-top"
         ) || "80px";
+
+    editor.style.width =
+        localStorage.getItem(
+            "editor-width"
+        ) || "1200px";
+
+    editor.style.height =
+        localStorage.getItem(
+            "editor-height"
+        ) || "800px";
 
 }
 
@@ -1772,3 +1792,18 @@ document
 
         }
     );
+
+const resizeObserver =
+    new ResizeObserver(
+        () => {
+
+            saveEditorState();
+
+        }
+    );
+
+resizeObserver.observe(
+    document.getElementById(
+        "editor-window"
+    )
+);
