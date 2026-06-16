@@ -324,3 +324,97 @@ h1 {
 
     right: 20px;
 }
+
+#settings-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.35
+        );
+
+    z-index: 11000;
+}
+
+#settings-window {
+
+    width: 400px;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 8px;
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.settings-buttons {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+#font-preview {
+
+    border: 1px solid #ccc;
+
+    padding: 10px;
+
+    min-height: 30px;
+
+    font-size: 16px;
+
+    text-align: center;
+
+    background: #fafafa;
+}
+
+@font-face {
+
+    font-family: "isocpeui";
+
+    src:
+        url(
+            "../isocpeui.ttf"
+        );
+}
+
+@font-face {
+
+    font-family: "isocpeur";
+
+    src:
+        url(
+            "../isocpeur.ttf"
+        );
+}

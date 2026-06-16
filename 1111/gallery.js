@@ -42,13 +42,8 @@ if (logoImage) {
 }
 
 
-pdf.setFont(
-    "courier",
-    "italic"
-);
-
-pdf.setFontSize(
-    6
+applyPdfFont(
+    pdf
 );
 
     // Горизонтали
@@ -232,6 +227,87 @@ let isAdmin = false;
 let currentPhotos = [];
 
 let currentIndex = 0;
+
+
+const DEFAULT_PDF_FONT =
+    "isocpeui";
+
+const DEFAULT_PDF_SIZE =
+    6;
+
+const DEFAULT_PDF_CHAR_SPACE =
+    -0.15;
+
+function loadPdfSettings() {
+
+    return {
+
+        font:
+            localStorage.getItem(
+                "pdf-font"
+            ) || "isocpeui",
+
+        size:
+            parseFloat(
+                localStorage.getItem(
+                    "pdf-size"
+                ) || 6
+            ),
+
+        charSpace:
+            parseFloat(
+                localStorage.getItem(
+                    "pdf-charspace"
+                ) || -0.15
+            )
+    };
+}
+
+function savePdfSettings() {
+
+    localStorage.setItem(
+        "pdf-font",
+        document.getElementById(
+            "pdf-font"
+        ).value
+    );
+
+    localStorage.setItem(
+        "pdf-size",
+        document.getElementById(
+            "pdf-size"
+        ).value
+    );
+
+    localStorage.setItem(
+        "pdf-charspace",
+        document.getElementById(
+            "pdf-charspace"
+        ).value
+    );
+}
+
+
+function applyPdfFont(
+    pdf
+) {
+
+    const s =
+        loadPdfSettings();
+
+    pdf.setFont(
+        s.font,
+        "normal"
+    );
+
+    pdf.setFontSize(
+        s.size
+    );
+
+    pdf.setCharSpace(
+        s.charSpace
+    );
+}
 
 
 const ADMIN_PASSWORD =
@@ -791,6 +867,10 @@ document
                     "mm",
                     "a4"
                 );
+
+            applyPdfFont(
+                pdf
+            );
 
             const project =
                 document
@@ -1807,3 +1887,114 @@ resizeObserver.observe(
         "editor-window"
     )
 );
+
+document
+    .getElementById(
+        "settings-btn"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            const s =
+                loadPdfSettings();
+
+            document
+                .getElementById(
+                    "pdf-font"
+                )
+                .value =
+                    s.font;
+
+            document
+                .getElementById(
+                    "pdf-size"
+                )
+                .value =
+                    s.size;
+
+            document
+                .getElementById(
+                    "pdf-charspace"
+                )
+                .value =
+                    s.charSpace;
+
+            document
+                .getElementById(
+                    "settings-modal"
+                )
+                .style.display =
+                    "block";
+        }
+    );
+
+document
+    .getElementById(
+        "settings-save"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            savePdfSettings();
+
+            document
+                .getElementById(
+                    "settings-modal"
+                )
+                .style.display =
+                    "none";
+        }
+    );
+
+document
+    .getElementById(
+        "settings-cancel"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById(
+                    "settings-modal"
+                )
+                .style.display =
+                    "none";
+        }
+    );
+
+document
+    .getElementById(
+        "pdf-font"
+    )
+    .addEventListener(
+        "change",
+        e => {
+
+            document
+                .getElementById(
+                    "font-preview"
+                )
+                .style.fontFamily =
+                    e.target.value;
+        }
+    );
+
+document
+    .getElementById(
+        "pdf-font"
+    )
+    .addEventListener(
+        "change",
+        e => {
+
+            document
+                .getElementById(
+                    "font-preview"
+                )
+                .style.fontFamily =
+                    e.target.value;
+        }
+    );
