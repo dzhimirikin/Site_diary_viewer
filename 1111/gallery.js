@@ -868,6 +868,10 @@ document
                     "a4"
                 );
 
+console.log(
+    pdf.getFontList()
+);
+
             applyPdfFont(
                 pdf
             );
