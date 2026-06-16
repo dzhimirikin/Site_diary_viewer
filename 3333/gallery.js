@@ -48,7 +48,7 @@ pdf.setFont(
 );
 
 pdf.setFontSize(
-    7
+    6
 );
 
     // Горизонтали
