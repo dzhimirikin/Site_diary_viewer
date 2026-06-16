@@ -15,6 +15,32 @@ function drawTitleBlock(
         31
     );
 
+if (logoImage) {
+
+    try {
+
+        pdf.addImage(
+            logoImage,
+            "PNG",
+
+            x0 + 2,
+            y0 + 1,
+
+            35,
+            8
+        );
+
+    } catch (e) {
+
+        console.log(
+            "Logo error:",
+            e
+        );
+
+    }
+
+}
+
     // Горизонтали
     pdf.line(
         x0,
@@ -81,6 +107,8 @@ function drawTitleBlock(
     );
 
 }
+
+let logoImage = null;
 
 let isAdmin = false;
 
@@ -474,6 +502,35 @@ function updateSelectionCount() {
     ).textContent =
         `Selected: ${count} photos`;
 }
+
+async function loadLogo() {
+
+    logoImage =
+        new Image();
+
+    logoImage.src =
+        "logo.png";
+
+    try {
+
+        await logoImage.decode();
+
+        console.log(
+            "Logo loaded"
+        );
+
+    } catch {
+
+        console.log(
+            "Logo not found"
+        );
+
+        logoImage = null;
+    }
+
+}
+
+loadLogo();
 
 loadDiary();
 
@@ -1233,6 +1290,46 @@ function prevPhoto() {
     }
 
     showPhoto();
+}
+
+
+function saveEditorState() {
+
+    const editor =
+        document.getElementById(
+            "editor-window"
+        );
+
+    localStorage.setItem(
+        "editor-left",
+        editor.style.left
+    );
+
+    localStorage.setItem(
+        "editor-top",
+        editor.style.top
+    );
+
+}
+
+
+function loadEditorState() {
+
+    const editor =
+        document.getElementById(
+            "editor-window"
+        );
+
+    editor.style.left =
+        localStorage.getItem(
+            "editor-left"
+        ) || "120px";
+
+    editor.style.top =
+        localStorage.getItem(
+            "editor-top"
+        ) || "80px";
+
 }
 
 

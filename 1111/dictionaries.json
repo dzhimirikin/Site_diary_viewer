@@ -1,0 +1,66 @@
+{
+"version": 1,
+
+"facades": [
+{
+"id": 1,
+"name": "V-01"
+},
+{
+"id": 2,
+"name": "V-02"
+}
+],
+
+"elements": [
+{
+"id": 1,
+"name": "M-101",
+"facadeId": 1
+},
+{
+"id": 2,
+"name": "M-102",
+"facadeId": 1
+},
+{
+"id": 3,
+"name": "T-201",
+"facadeId": 2
+}
+],
+
+"operations": [
+{
+"id": 10,
+"name": "Delivery"
+},
+{
+"id": 20,
+"name": "Installation"
+},
+{
+"id": 40,
+"name": "Remark"
+},
+{
+"id": 50,
+"name": "Correction"
+},
+{
+"id": 60,
+"name": "Acceptance"
+}
+],
+
+"contractors": [
+{
+"id": 1,
+"name": "Glass Team OÜ"
+},
+{
+"id": 2,
+"name": "Facade AS"
+}
+]
+}

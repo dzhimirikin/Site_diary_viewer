@@ -1,0 +1,21 @@
+{
+"version": 1,
+
+"name": "KMU Site A",
+
+"object": "Tallinn Office Building",
+
+"customer": "ABC Developer",
+
+"location": "Tallinn",
+
+"company": "My Engineering",
+
+"author": "Dmitry",
+
+"revision": "A",
+
+"logo": "logo.png",
+
+"created": "2026-06-16"
+}
