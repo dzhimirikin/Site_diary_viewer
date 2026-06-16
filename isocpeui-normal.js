@@ -3,4 +3,6 @@ var callAddFont = function () {
 this.addFileToVFS('isocpeui-normal.ttf', font);
 this.addFont('isocpeui-normal.ttf', 'isocpeui', 'normal');
 };
-jsPDF.API.events.push(['addFonts', callAddFont])
+window.jspdf.jsPDF.API.events.push(
+    ['addFonts', callAddFont]
+);
