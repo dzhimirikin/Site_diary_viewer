@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "name": "1111",
-  "object": "Test object",
+  "name": "Assembly List",
+  "object": "Test object #1111",
   "client": "ABC Developer",
-  "projectManager": "Dmitry",
-  "headDesigner": "Engineer",
-  "reviewedBy": "QA",
-  "designer1": "Designer",
-  "scale": "NTS",
+  "projectManager": "Karu",
+  "headDesigner": "Ivanov",
+  "reviewedBy": "Petrov",
+  "designer1": "Zhimirikin",
+  "scale": "1:20",
   "logo": "logo.png"
 }

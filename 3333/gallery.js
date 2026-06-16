@@ -151,7 +151,7 @@ pdf.text(
 
 pdf.text(
     projectInfo.projectManager || "",
-    x0 + 66,
+    x0 + 64,
     y0 + 19
 );
 
@@ -164,7 +164,7 @@ pdf.text(
 
 pdf.text(
     projectInfo.headDesigner || "",
-    x0 + 66,
+    x0 + 64,
     y0 + 22.5
 );
 
@@ -177,7 +177,7 @@ pdf.text(
 
 pdf.text(
     projectInfo.reviewedBy || "",
-    x0 + 66,
+    x0 + 64,
     y0 + 26
 );
 
@@ -190,7 +190,7 @@ pdf.text(
 
 pdf.text(
     projectInfo.designer1 || "",
-    x0 + 66,
+    x0 + 64,
     y0 + 29.5
 );
 
