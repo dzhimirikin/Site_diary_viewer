@@ -117,26 +117,6 @@
         </h2>
 
         <label>
-            Font
-        </label>
-
-        <select id="pdf-font">
-
-            <option value="isocpeui">
-                ISOCPEUI
-            </option>
-
-            <option value="isocpeur">
-                ISOCPEUR
-            </option>
-
-        </select>
-
-        <div id="font-preview">
-            ABCDEFG 1234567890
-        </div>
-
-        <label>
             Font size
         </label>
 
@@ -156,6 +136,18 @@
             step="0.01"
         >
 
+<label>
+    Slant angle (0–20°)
+</label>
+
+<input
+    id="pdf-slant"
+    type="number"
+    min="0"
+    max="20"
+    step="1"
+>
+
         <div class="settings-buttons">
 
             <button id="settings-save">
@@ -173,8 +165,6 @@
 </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-    <script src="../isocpeui-italic.js"></script>
 
     <script src="../isocpeur-normal.js"></script>
 

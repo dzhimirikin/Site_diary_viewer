@@ -217,6 +217,73 @@ pdf.text(
 
 }
 
+
+function drawPdfText(
+    pdf,
+    text,
+    x,
+    y,
+    options = {}
+) {
+
+    const s = loadPdfSettings();
+
+    const angle =
+        s.slant || 0;
+
+    if (angle === 0) {
+
+        pdf.text(
+            text,
+            x,
+            y,
+            options
+        );
+
+        return;
+    }
+
+    const skew =
+        Math.tan(
+            angle * Math.PI / 180
+        );
+
+    pdf.saveGraphicsState();
+
+    pdf.setCurrentTransformationMatrix(
+        new pdf.Matrix(
+            1,
+            0,
+            skew,
+            1,
+            0,
+            0
+        )
+    );
+
+    if (Array.isArray(text)) {
+
+        pdf.text(
+            text,
+            x,
+            y
+        );
+
+    } else {
+
+        pdf.text(
+            text,
+            x,
+            y,
+            options
+        );
+
+    }
+
+    pdf.restoreGraphicsState();
+}
+
+
 let logoImage = null;
 
 let projectInfo = {};
@@ -229,23 +296,19 @@ let currentPhotos = [];
 let currentIndex = 0;
 
 
-const DEFAULT_PDF_FONT =
-    "isocpeui";
-
 const DEFAULT_PDF_SIZE =
     6;
 
 const DEFAULT_PDF_CHAR_SPACE =
     -0.15;
 
+const DEFAULT_PDF_SLANT =
+    15;
+
+
 function loadPdfSettings() {
 
     return {
-
-        font:
-            localStorage.getItem(
-                "pdf-font"
-            ) || "isocpeui",
 
         size:
             parseFloat(
@@ -259,18 +322,25 @@ function loadPdfSettings() {
                 localStorage.getItem(
                     "pdf-charspace"
                 ) || -0.15
+            ),
+
+        slant:
+            parseFloat(
+                localStorage.getItem(
+                    "pdf-slant"
+                ) || 15
             )
     };
 }
 
 function savePdfSettings() {
 
-    localStorage.setItem(
-        "pdf-font",
-        document.getElementById(
-            "pdf-font"
-        ).value
-    );
+localStorage.setItem(
+    "pdf-slant",
+    document.getElementById(
+        "pdf-slant"
+    ).value
+);
 
     localStorage.setItem(
         "pdf-size",
@@ -295,10 +365,10 @@ function applyPdfFont(
     const s =
         loadPdfSettings();
 
-    pdf.setFont(
-        s.font,
-        "normal"
-    );
+pdf.setFont(
+    "isocpeur",
+    "normal"
+);
 
     pdf.setFontSize(
         s.size
@@ -868,9 +938,6 @@ document
                     "a4"
                 );
 
-console.log(
-    pdf.getFontList()
-);
 
             applyPdfFont(
                 pdf
@@ -986,13 +1053,13 @@ pdf.setFontSize(
     16
 );
 
-pdf.text(
+drawPdfText(
+    pdf,
     project,
     pageWidth / 2,
     12,
     {
-        align:
-            "center"
+        align: "center"
     }
 );
 
@@ -1000,13 +1067,13 @@ pdf.setFontSize(
     9
 );
 
-pdf.text(
+drawPdfText(
+    pdf,
     `Page ${page}`,
     202,
     12,
     {
-        align:
-            "right"
+        align: "right"
     }
 );
 
@@ -1149,16 +1216,13 @@ pdf.setFontSize(
     8
 );
 
-pdf.text(
+drawPdfText(
+    pdf,
     day,
-    pos.x +
-        cellW / 2,
-    pos.y +
-        cellH +
-        6,
+    pos.x + cellW / 2,
+    pos.y + cellH + 6,
     {
-        align:
-            "center"
+        align: "center"
     }
 );
 
@@ -1169,7 +1233,8 @@ const fileName =
 
 pdf.setFontSize(8);
 
-pdf.text(
+drawPdfText(
+    pdf,
     fileName,
     pos.x + cellW / 2,
     pos.y + cellH + 11,
@@ -1213,7 +1278,8 @@ if (
     hasErrors = true;
 }
 
-    pdf.text(
+drawPdfText(
+        pdf,
         lines,
         pos.x + 2,
         pos.y + cellH + 16
@@ -1903,12 +1969,13 @@ document
             const s =
                 loadPdfSettings();
 
-            document
-                .getElementById(
-                    "pdf-font"
-                )
-                .value =
-                    s.font;
+document
+    .getElementById(
+        "pdf-slant"
+    )
+    .value =
+        s.slant;
+
 
             document
                 .getElementById(
@@ -1966,39 +2033,5 @@ document
                 )
                 .style.display =
                     "none";
-        }
-    );
-
-document
-    .getElementById(
-        "pdf-font"
-    )
-    .addEventListener(
-        "change",
-        e => {
-
-            document
-                .getElementById(
-                    "font-preview"
-                )
-                .style.fontFamily =
-                    e.target.value;
-        }
-    );
-
-document
-    .getElementById(
-        "pdf-font"
-    )
-    .addEventListener(
-        "change",
-        e => {
-
-            document
-                .getElementById(
-                    "font-preview"
-                )
-                .style.fontFamily =
-                    e.target.value;
         }
     );
