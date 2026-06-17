@@ -46,6 +46,17 @@ applyPdfFont(
     pdf
 );
 
+const s =
+    loadPdfSettings();
+
+pdf.setFontSize(
+    s.stampSize
+);
+
+pdf.setCharSpace(
+    s.stampCharSpace
+);
+
     // Горизонтали
     pdf.line(
         x0,
@@ -215,72 +226,10 @@ pdf.text(
     y0 + 29.5
 );
 
-}
+pdf.setCharSpace(
+    0
+);
 
-
-function drawPdfText(
-    pdf,
-    text,
-    x,
-    y,
-    options = {}
-) {
-
-    const s = loadPdfSettings();
-
-    const angle =
-        s.slant || 0;
-
-    if (angle === 0) {
-
-        pdf.text(
-            text,
-            x,
-            y,
-            options
-        );
-
-        return;
-    }
-
-    const skew =
-        Math.tan(
-            angle * Math.PI / 180
-        );
-
-    pdf.saveGraphicsState();
-
-    pdf.setCurrentTransformationMatrix(
-        new pdf.Matrix(
-            1,
-            0,
-            skew,
-            1,
-            0,
-            0
-        )
-    );
-
-    if (Array.isArray(text)) {
-
-        pdf.text(
-            text,
-            x,
-            y
-        );
-
-    } else {
-
-        pdf.text(
-            text,
-            x,
-            y,
-            options
-        );
-
-    }
-
-    pdf.restoreGraphicsState();
 }
 
 
@@ -296,64 +245,95 @@ let currentPhotos = [];
 let currentIndex = 0;
 
 
-const DEFAULT_PDF_SIZE =
-    6;
-
-const DEFAULT_PDF_CHAR_SPACE =
-    -0.15;
-
-const DEFAULT_PDF_SLANT =
-    15;
 
 
 function loadPdfSettings() {
 
     return {
 
-        size:
+        textSize:
             parseFloat(
                 localStorage.getItem(
-                    "pdf-size"
+                    "pdf-text-size"
+                ) || 8
+            ),
+
+        commentLines:
+            parseInt(
+                localStorage.getItem(
+                    "pdf-comment-lines"
+                ) || 55
+            ),
+
+        stampSize:
+            parseFloat(
+                localStorage.getItem(
+                    "pdf-stamp-size"
                 ) || 6
             ),
 
-        charSpace:
+        stampCharSpace:
             parseFloat(
                 localStorage.getItem(
-                    "pdf-charspace"
+                    "pdf-stamp-charspace"
                 ) || -0.15
             ),
 
-        slant:
-            parseFloat(
-                localStorage.getItem(
-                    "pdf-slant"
-                ) || 15
-            )
+        drawFrame:
+            localStorage.getItem(
+                "pdf-draw-frame"
+            ) !== "false",
+
+        drawTitleBlock:
+            localStorage.getItem(
+                "pdf-draw-title-block"
+            ) !== "false"
     };
 }
 
+
 function savePdfSettings() {
 
-localStorage.setItem(
-    "pdf-slant",
-    document.getElementById(
-        "pdf-slant"
-    ).value
-);
-
     localStorage.setItem(
-        "pdf-size",
+        "pdf-text-size",
         document.getElementById(
-            "pdf-size"
+            "pdf-text-size"
         ).value
     );
 
     localStorage.setItem(
-        "pdf-charspace",
+        "pdf-comment-lines",
         document.getElementById(
-            "pdf-charspace"
+            "pdf-comment-lines"
         ).value
+    );
+
+    localStorage.setItem(
+        "pdf-stamp-size",
+        document.getElementById(
+            "pdf-stamp-size"
+        ).value
+    );
+
+    localStorage.setItem(
+        "pdf-stamp-charspace",
+        document.getElementById(
+            "pdf-stamp-charspace"
+        ).value
+    );
+
+    localStorage.setItem(
+        "pdf-draw-frame",
+        document.getElementById(
+            "pdf-draw-frame"
+        ).checked
+    );
+
+    localStorage.setItem(
+        "pdf-draw-title-block",
+        document.getElementById(
+            "pdf-draw-title-block"
+        ).checked
     );
 }
 
@@ -362,20 +342,9 @@ function applyPdfFont(
     pdf
 ) {
 
-    const s =
-        loadPdfSettings();
-
-pdf.setFont(
-    "isocpeur",
-    "normal"
-);
-
-    pdf.setFontSize(
-        s.size
-    );
-
-    pdf.setCharSpace(
-        s.charSpace
+    pdf.setFont(
+        "isocpeur",
+        "normal"
     );
 }
 
@@ -939,9 +908,13 @@ document
                 );
 
 
-            applyPdfFont(
-                pdf
-            );
+applyPdfFont(
+    pdf
+);
+
+const s =
+    loadPdfSettings();
+
 
             const project =
                 document
@@ -956,18 +929,27 @@ const pageHeight = 297;
 // Рамка листа
 pdf.setLineWidth(0.25);
 
-pdf.rect(
-    20,  // X
-    5,   // Y
-    185, // ширина
-    287  // высота
-);
 
-drawTitleBlock(
-    pdf,
-    105,
-    261
-);
+if (s.drawFrame) {
+
+    pdf.rect(
+        20,  // X
+        5,   // Y
+        185, // ширина
+        287  // высота
+    );
+}
+
+
+if (s.drawTitleBlock) {
+
+    drawTitleBlock(
+        pdf,
+        105,
+        261
+    );
+}
+
 
 // Размер ячейки фото
 const cellW = 85;
@@ -1053,8 +1035,7 @@ pdf.setFontSize(
     16
 );
 
-drawPdfText(
-    pdf,
+pdf.text(
     project,
     pageWidth / 2,
     12,
@@ -1067,8 +1048,7 @@ pdf.setFontSize(
     9
 );
 
-drawPdfText(
-    pdf,
+pdf.text(
     `Page ${page}`,
     202,
     12,
@@ -1216,8 +1196,7 @@ pdf.setFontSize(
     8
 );
 
-drawPdfText(
-    pdf,
+pdf.text(
     day,
     pos.x + cellW / 2,
     pos.y + cellH + 6,
@@ -1233,8 +1212,7 @@ const fileName =
 
 pdf.setFontSize(8);
 
-drawPdfText(
-    pdf,
+pdf.text(
     fileName,
     pos.x + cellW / 2,
     pos.y + cellH + 11,
@@ -1252,14 +1230,15 @@ if (
         7
     );
 
-    let lines =
-        pdf.splitTextToSize(
-            comment,
-            cellW - 4
-        );
+let lines =
+    pdf.splitTextToSize(
+        comment,
+        cellW - 4
+    );
 
 if (
-    lines.length > 55
+    lines.length >
+    s.commentLines
 ) {
 
     img.classList.add(
@@ -1278,8 +1257,7 @@ if (
     hasErrors = true;
 }
 
-drawPdfText(
-        pdf,
+pdf.text(
         lines,
         pos.x + 2,
         pos.y + cellH + 16
@@ -1323,11 +1301,13 @@ if (
     i < photos.length
 ) {
 
-    pdf.addPage();
+pdf.addPage();
 
-    pdf.setLineWidth(
-        0.25
-    );
+pdf.setLineWidth(
+    0.25
+);
+
+if (s.drawFrame) {
 
     pdf.rect(
         20,
@@ -1335,12 +1315,17 @@ if (
         185,
         287
     );
+}
+
+if (s.drawTitleBlock) {
 
     drawTitleBlock(
         pdf,
         105,
         261
     );
+}
+
 }
 
 }
@@ -1357,13 +1342,15 @@ if (
     hasErrors
 ) {
 
-    alert(
-        "One or more comments exceed "
-        + "the maximum limit of 55 PDF lines.\n\n"
-        + "The photos and comments "
-        + "containing errors have "
-        + "been highlighted in red."
-    );
+alert(
+    "One or more comments exceed "
+    + "the maximum limit of "
+    + s.commentLines
+    + " PDF lines.\n\n"
+    + "The photos and comments "
+    + "containing errors have "
+    + "been highlighted in red."
+);
 
     return;
 }
@@ -1402,10 +1389,7 @@ document
                 const key =
                     `${project}_${textarea.dataset.day}_${textarea.dataset.file}`;
 
-//                localStorage.setItem(
-//                    key,
-//                    textarea.value
-//                );
+
 
             }
         );
@@ -1966,37 +1950,57 @@ document
         "click",
         () => {
 
-            const s =
-                loadPdfSettings();
+const s =
+    loadPdfSettings();
 
 document
     .getElementById(
-        "pdf-slant"
+        "pdf-text-size"
     )
     .value =
-        s.slant;
+        s.textSize;
 
+document
+    .getElementById(
+        "pdf-comment-lines"
+    )
+    .value =
+        s.commentLines;
 
-            document
-                .getElementById(
-                    "pdf-size"
-                )
-                .value =
-                    s.size;
+document
+    .getElementById(
+        "pdf-stamp-size"
+    )
+    .value =
+        s.stampSize;
 
-            document
-                .getElementById(
-                    "pdf-charspace"
-                )
-                .value =
-                    s.charSpace;
+document
+    .getElementById(
+        "pdf-stamp-charspace"
+    )
+    .value =
+        s.stampCharSpace;
 
-            document
-                .getElementById(
-                    "settings-modal"
-                )
-                .style.display =
-                    "block";
+document
+    .getElementById(
+        "pdf-draw-frame"
+    )
+    .checked =
+        s.drawFrame;
+
+document
+    .getElementById(
+        "pdf-draw-title-block"
+    )
+    .checked =
+        s.drawTitleBlock;
+
+document
+    .getElementById(
+        "settings-modal"
+    )
+    .style.display =
+        "block";
         }
     );
 

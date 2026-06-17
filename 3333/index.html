@@ -116,37 +116,65 @@
             PDF Settings
         </h2>
 
-        <label>
-            Font size
-        </label>
-
-        <input
-            id="pdf-size"
-            type="number"
-            step="0.5"
-        >
-
-        <label>
-            Character spacing
-        </label>
-
-        <input
-            id="pdf-charspace"
-            type="number"
-            step="0.01"
-        >
-
 <label>
-    Slant angle (0–20°)
+    Text size
 </label>
 
 <input
-    id="pdf-slant"
+    id="pdf-text-size"
     type="number"
-    min="0"
-    max="20"
-    step="1"
+    step="0.5"
 >
+
+<label>
+    Comment lines
+</label>
+
+<input
+    id="pdf-comment-lines"
+    type="number"
+    min="1"
+>
+
+<hr>
+
+<label>
+    Stamp font size
+</label>
+
+<input
+    id="pdf-stamp-size"
+    type="number"
+    step="0.5"
+>
+
+<label>
+    Stamp character spacing
+</label>
+
+<input
+    id="pdf-stamp-charspace"
+    type="number"
+    step="0.01"
+>
+
+<hr>
+
+<label>
+    <input
+        id="pdf-draw-frame"
+        type="checkbox"
+    >
+    Draw frame
+</label>
+
+<label>
+    <input
+        id="pdf-draw-title-block"
+        type="checkbox"
+    >
+    Draw title block
+</label>
 
         <div class="settings-buttons">
 
