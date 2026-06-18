@@ -2039,3 +2039,37 @@ document
                     "none";
         }
     );
+
+document
+    .getElementById(
+        "pdf-comment-lines"
+    )
+    .addEventListener(
+        "input",
+        e => {
+
+            let value =
+                parseInt(
+                    e.target.value
+                ) || 1;
+
+            if (
+                value > 55
+            ) {
+
+                value = 55;
+
+            }
+
+            if (
+                value < 1
+            ) {
+
+                value = 1;
+
+            }
+
+            e.target.value =
+                value;
+        }
+    );
