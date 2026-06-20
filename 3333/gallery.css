@@ -383,3 +383,24 @@ h1 {
 
     margin-top: 15px;
 }
+
+.mode-tabs {
+
+    display: inline-flex;
+
+    gap: 4px;
+}
+
+.mode-tabs button {
+
+    padding: 8px 16px;
+
+    cursor: pointer;
+}
+
+.active-tab {
+
+    font-weight: bold;
+
+    border: 2px solid #444;
+}

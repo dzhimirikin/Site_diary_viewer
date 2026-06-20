@@ -240,6 +240,12 @@ let projectInfo = {};
 let isAdmin = false;
 
 
+let currentMode = "view";
+
+const ADMIN_PASSWORD = "0000";
+const LAYOUT_PASSWORD = "1111";
+
+
 let currentPhotos = [];
 
 let currentIndex = 0;
@@ -348,9 +354,6 @@ function applyPdfFont(
     );
 }
 
-
-const ADMIN_PASSWORD =
-    "0000";
 
 async function loadPhotoData(
     project,
@@ -2071,5 +2074,81 @@ document
 
             e.target.value =
                 value;
+        }
+    );
+
+document
+    .getElementById("view-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentMode = "view";
+
+            console.log(
+                "Mode:",
+                currentMode
+            );
+
+        }
+    );
+
+document
+    .getElementById("admin-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            const password =
+                prompt(
+                    "Admin password"
+                );
+
+            if (
+                password !==
+                ADMIN_PASSWORD
+            ) {
+
+                return;
+            }
+
+            currentMode =
+                "admin";
+
+            console.log(
+                "Mode:",
+                currentMode
+            );
+
+        }
+    );
+
+document
+    .getElementById("layout-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            const password =
+                prompt(
+                    "Layout password"
+                );
+
+            if (
+                password !==
+                LAYOUT_PASSWORD
+            ) {
+
+                return;
+            }
+
+            currentMode =
+                "layout";
+
+            console.log(
+                "Mode:",
+                currentMode
+            );
+
         }
     );
