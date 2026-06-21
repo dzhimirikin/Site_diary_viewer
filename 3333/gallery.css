@@ -404,3 +404,53 @@ h1 {
 
     border: 2px solid #444;
 }
+
+.mode-tabs {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-bottom: 0;
+
+    margin-top: 20px;
+
+    gap: 0;
+}
+
+.mode-tabs button {
+
+    padding: 10px 30px;
+
+    border: 1px solid #999;
+
+    border-bottom: none;
+
+    background: #e6e6e6;
+
+    cursor: pointer;
+
+    font-weight: 600;
+
+    margin: 0;
+
+    position: relative;
+
+    top: 1px;
+}
+
+.mode-tabs button.active {
+
+    background: white;
+
+    border-color: #999;
+
+    z-index: 10;
+}
+
+.mode-separator {
+
+    border-top: 1px solid #999;
+
+    margin-bottom: 20px;
+}
