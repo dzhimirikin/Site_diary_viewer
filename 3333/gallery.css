@@ -10,7 +10,7 @@ h1 {
     font-size: 56px;
     font-weight: 700;
     letter-spacing: 1px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 }
 
 .project-info {
@@ -413,7 +413,7 @@ h1 {
 
     margin-bottom: 0;
 
-    margin-top: 20px;
+    margin-top: 10px;
 
     gap: 0;
 }
@@ -453,4 +453,17 @@ h1 {
     border-top: 1px solid #999;
 
     margin-bottom: 20px;
+}
+
+.content-frame {
+
+    border: 1px solid #cfcfcf;
+
+    border-radius: 0 4px 4px 4px;
+
+    padding: 16px 24px 24px 24px;
+
+    margin-top: 12px;
+
+    background: white;
 }
