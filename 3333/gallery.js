@@ -2055,11 +2055,6 @@ document
                     "Admin password"
                 );
 
-const password =
-    prompt(
-        "Admin password"
-    );
-
 if (
     password === null
 ) {
@@ -2104,11 +2099,6 @@ document
                 prompt(
                     "Layout password"
                 );
-
-const password =
-    prompt(
-        "Layout password"
-    );
 
 if (
     password === null
