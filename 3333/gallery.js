@@ -2055,13 +2055,29 @@ document
                     "Admin password"
                 );
 
-            if (
-                password !==
-                ADMIN_PASSWORD
-            ) {
+const password =
+    prompt(
+        "Admin password"
+    );
 
-                return;
-            }
+if (
+    password === null
+) {
+
+    return;
+}
+
+if (
+    password !==
+    ADMIN_PASSWORD
+) {
+
+    alert(
+        "Invalid admin password"
+    );
+
+    return;
+}
 
 currentMode =
     "admin";
@@ -2089,13 +2105,29 @@ document
                     "Layout password"
                 );
 
-            if (
-                password !==
-                LAYOUT_PASSWORD
-            ) {
+const password =
+    prompt(
+        "Layout password"
+    );
 
-                return;
-            }
+if (
+    password === null
+) {
+
+    return;
+}
+
+if (
+    password !==
+    LAYOUT_PASSWORD
+) {
+
+    alert(
+        "Invalid layout password"
+    );
+
+    return;
+}
 
 currentMode =
     "layout";
