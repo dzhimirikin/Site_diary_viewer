@@ -722,6 +722,9 @@ wrapper.appendChild(
             section
         );
     }
+
+    applyMode();
+
 }
 
 function updateSelectionCount() {
