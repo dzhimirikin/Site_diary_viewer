@@ -1939,7 +1939,35 @@ document
         }
     );
 
+
+function setActiveTab() {
+
+    document
+        .querySelectorAll(
+            ".mode-tabs button"
+        )
+        .forEach(
+            btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    document
+        .getElementById(
+            `${currentMode}-tab`
+        )
+        .classList.add(
+            "active"
+        );
+
+}
+
 document
+
     .getElementById("view-tab")
     .addEventListener(
         "click",
