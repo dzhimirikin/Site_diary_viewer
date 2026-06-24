@@ -467,3 +467,24 @@ h1 {
 
     background: white;
 }
+
+.about-page {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 20px;
+
+    line-height: 1.6;
+}
+
+.about-page h1 {
+
+    margin-top: 0;
+}
+
+.about-page h2 {
+
+    margin-top: 30px;
+}

@@ -422,6 +422,23 @@ async function savePhotoData(
 }
 
 
+async function loadAbout() {
+
+    const response =
+        await fetch(
+            "../about.html"
+        );
+
+    const html =
+        await response.text();
+
+    document
+        .getElementById(
+            "about-page"
+        )
+        .innerHTML =
+        html;
+}
 
 async function loadDiary() {
 
@@ -809,6 +826,8 @@ async function loadProjectInfo() {
     await loadLogo();
 
     await loadProjectInfo();
+
+    await loadAbout();
 
     await loadDiary();
 
@@ -1991,6 +2010,28 @@ function applyMode() {
     const isLayout =
         currentMode === "layout";
 
+    const isAbout =
+        currentMode === "about";
+
+
+document
+    .getElementById(
+        "gallery"
+    )
+    .style.display =
+        isAbout
+            ? "none"
+            : "block";
+
+document
+    .getElementById(
+        "about-page"
+    )
+    .style.display =
+        isAbout
+            ? "block"
+            : "none";
+
 
     // комментарии под фото
 
@@ -2173,39 +2214,61 @@ document
                     "Layout password"
                 );
 
-if (
-    password === null
-) {
+            if (
+                password === null
+            ) {
 
-    return;
-}
+                return;
+            }
 
-if (
-    password !==
-    LAYOUT_PASSWORD
-) {
+            if (
+                password !==
+                LAYOUT_PASSWORD
+            ) {
 
-    alert(
-        "Invalid layout password"
-    );
+                alert(
+                    "Invalid layout password"
+                );
 
-    return;
-}
+                return;
+            }
 
-currentMode =
-    "layout";
+            currentMode =
+                "layout";
 
-setActiveTab();
+            setActiveTab();
 
-applyMode();
+            applyMode();
 
-console.log(
-    "Mode:",
-    currentMode
-);
+            console.log(
+                "Mode:",
+                currentMode
+            );
 
         }
     );
+
+document
+    .getElementById("about-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentMode =
+                "about";
+
+            setActiveTab();
+
+            applyMode();
+
+            console.log(
+                "Mode:",
+                currentMode
+            );
+
+        }
+    );
+
 
 setActiveTab();
 

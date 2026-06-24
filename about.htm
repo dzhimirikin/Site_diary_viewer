@@ -1,0 +1,1711 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1251">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+h1
+	{mso-style-link:"Заголовок 1 Знак";
+	margin-right:0in;
+	margin-left:0in;
+	font-size:24.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Заголовок 2 Знак";
+	margin-right:0in;
+	margin-left:0in;
+	font-size:18.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+code
+	{font-family:"Courier New";}
+pre
+	{mso-style-link:"Стандартный HTML Знак";
+	margin:0in;
+	margin-bottom:.0001pt;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+span.1
+	{mso-style-name:"Заголовок 1 Знак";
+	mso-style-link:"Заголовок 1";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.2
+	{mso-style-name:"Заголовок 2 Знак";
+	mso-style-link:"Заголовок 2";
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+span.HTML
+	{mso-style-name:"Стандартный HTML Знак";
+	mso-style-link:"Стандартный HTML";
+	font-family:"Courier New";}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:595.3pt 841.9pt;
+	margin:56.7pt 42.5pt 56.7pt 85.05pt;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=RU>
+
+<div class=WordSection1>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Site
+Diary — Архитектура и техническая концепция</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Назначение
+системы</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Site
+Diary — специализированная инженерная система ведения фотофиксации объекта
+строительства.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Основные
+задачи:</span></p>
+
+<p class=MsoNormal style='margin-left:47.25pt;text-indent:-.25in;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:#222222'>·<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>накопление
+фотофиксации;</span></p>
+
+<p class=MsoNormal style='margin-left:47.25pt;text-indent:-.25in;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:#222222'>·<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>привязка
+инженерных данных к фотографиям;</span></p>
+
+<p class=MsoNormal style='margin-left:47.25pt;text-indent:-.25in;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:#222222'>·<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>хранение
+истории выполнения работ;</span></p>
+
+<p class=MsoNormal style='margin-left:47.25pt;text-indent:-.25in;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:#222222'>·<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>выпуск
+PDF-отчётов;</span></p>
+
+<p class=MsoNormal style='margin-left:47.25pt;text-indent:-.25in;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:Symbol;
+color:#222222'>·<span style='font:7.0pt "Times New Roman"'>&nbsp; </span></span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>сопровождение
+объекта на протяжении жизненного цикла строительства.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+не является обычным сайтом, CMS или фотогалереей.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Основным
+объектом системы является фотография строительного процесса и связанные с ней
+инженерные данные.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Общая
+концепция</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Site
+Diary построен вокруг концепции локального проекта.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Проект
+существует как набор файлов на компьютере пользователя.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Все
+остальные компоненты системы являются инструментами публикации, просмотра и
+сопровождения этого проекта.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Структура
+проекта</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пример
+структуры проекта:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>Project/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    project.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    diary.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    data/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>        facades.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>        elements.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>        contractors.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>        </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#222222'>operations.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>    images/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>    logo.png</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Источники
+данных</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+использует два независимых источника истины.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Структурные
+данные проекта</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Источник
+истины:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Локальный проект</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Содержит:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>project.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>diary.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>data/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    facades.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    elements.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    contractors.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#222222'>operations.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>images/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>logo.png</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Изменение
+структуры проекта допускается только через Uploader.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Пользовательские
+данные</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Источник
+истины:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Firebase</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Содержит:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Комментарии</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Классификацию фотографий</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Историю изменений</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>То есть
+все данные, создаваемые пользователями во время работы с проектом.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Роли
+компонентов</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Uploader</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Основное
+приложение управления проектом.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Функции:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Создание проекта</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Обновление проекта</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Импорт данных</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Экспорт данных</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Управление справочниками</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Импорт справочников</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Экспорт справочников</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Публикация проекта</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Синхронизация проекта</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Uploader
+работает непосредственно с локальной папкой проекта.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Uploader
+является административным инструментом системы.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>GitHub</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>GitHub
+хранит опубликованную копию проекта.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Публикуются</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>project.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>diary.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>data/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    facades.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    elements.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    contractors.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    operations.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>images/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>logo.png</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>GitHub
+</span><span style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>используется</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'> </span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>как</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'> </span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>канал</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'> </span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>публикации</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>GitHub не
+является источником истины.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Firebase</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Firebase
+хранит пользовательские данные.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Firebase
+не хранит:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Фотографии</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Структуру проекта</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Справочники</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Firebase
+используется только для хранения информации, создаваемой пользователями во
+время работы.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>localStorage</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Хранит
+настройки конкретного рабочего места.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Примеры:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Настройки PDF</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Настройки штампа</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Размеры текста</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Параметры отображения</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Пользовательские предпочтения</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>localStorage
+не синхронизируется между пользователями.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Gallery</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Gallery
+является рабочим клиентом проекта.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Функции:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Просмотр фотографий</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Навигация по проекту</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Работа с комментариями</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Классификация фотографий</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Формирование PDF</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Gallery
+не управляет структурой проекта.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Gallery
+не управляет справочниками.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Gallery
+не публикует проект.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Справочники</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Все
+справочники принадлежат проекту.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Каждый
+проект имеет собственный набор справочников.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Размещение</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>data/</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    facades.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    elements.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    </span><span style='font-size:10.0pt;
+font-family:"Courier New";color:#222222'>contractors.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>    operations.json</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Принцип
+справочников</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Справочники
+являются независимыми классификаторами.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+не реализует объектную модель фасада.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+реализует классификацию фотографий.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Facades</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Марки
+фасадов.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Примеры:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>KLF1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>KLF2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>U1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>A1</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пример
+записи:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;id&quot;: 1,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;name&quot;: &quot;KLF1&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>}</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Elements</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Марки
+элементов.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Примеры:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>KLF1.1.M1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>KLF1.1.M2</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>KLF2.3.S1</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пример
+записи:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;id&quot;: 12,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;name&quot;: &quot;KLF1.1.M2&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>}</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+не хранит и не контролирует связь между Element и Facade.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Contractors</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Исполнители
+работ.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Примеры:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Иванов</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Петров</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>ABC Facades</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пример
+записи:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;id&quot;: 3,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;name&quot;: &quot;ABC Facades&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>}</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>Operations</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Типы
+операций.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Примеры:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Сборка рамы</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Сборка створки</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Установка фурнитуры</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Установка стеклопакета</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пример
+записи:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;id&quot;: 4,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;name&quot;: &quot;Установка стеклопакета&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>}</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Правила
+справочников</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Каждый
+справочник хранится в отдельном JSON-файле.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Причины:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Простое сопровождение</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Простой импорт</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Простой экспорт</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Простое копирование между проектами</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Минимизация конфликтов</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Перенос
+справочников</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Перенос
+между проектами выполняется на уровне файлов.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Например:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>contractors.json</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>может
+быть скопирован из одного проекта в другой.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Аналогично</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>operations.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>facades.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>elements.json</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Специальные
+форматы обмена не требуются.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Архитектурное
+правило ID</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Человек
+работает с названиями.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+хранит только ID.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пользователь
+видит:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>KLF1</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+хранит:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>  &quot;facadeId&quot;: 1</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>}</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Это
+правило распространяется на все существующие и будущие справочники.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Photo
+Annotation</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Для
+каждой фотографии существует объект пользовательских данных:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>Photo Annotation</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Он</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'> </span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>хранится</span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'> </span><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>в</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>
+Firebase.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пример</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>{</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;photoId&quot;: &quot;IMG_001&quot;,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;comment&quot;: &quot;...&quot;,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;facadeId&quot;: 1,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;elementId&quot;: 12,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;contractorId&quot;: 3,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;operationId&quot;: 4,</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>  &quot;updatedAt&quot;:
+&quot;2026-06-24T12:00:00Z&quot;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>}</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Принцип
+Photo Annotation</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Фотография
+рассматривается как объект, которому назначается набор независимых
+классификаторов.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Схема</span><span
+lang=EN-US style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>Photo</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    facadeId</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    elementId</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    contractorId</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span lang=EN-US style='font-size:10.0pt;font-family:
+"Courier New";color:#222222'>    operationId</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+не выполняет проверку взаимной согласованности этих значений.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Допускается
+любая комбинация существующих записей справочников.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Единственное
+требование:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Любой указанный ID</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>должен существовать</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>в соответствующем справочнике.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Ключевой
+механизм Gallery</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Главная
+функция системы:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>loadDiary()</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Она
+преобразует:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>diary.json</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>в рабочую
+галерею.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Схема:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>diary.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&#8595;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>loadDiary()</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&#8595;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>генерация DOM</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&#8595;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>галерея</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Фотографии
+никогда не должны описываться вручную в HTML.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>PDF</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>PDF
+является одним из основных результатов работы системы.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Пайплайн
+формирования PDF:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Фотографии</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Photo Annotation</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>+</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Настройки localStorage</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&#8595;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>PDF</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Шрифт</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Используется
+единый шрифт:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>isocpeur-normal.js</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Поддерживается
+только прямое начертание.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Вопрос
+программного наклона считается закрытым.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Штамп</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Функция:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>drawTitleBlock()</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>является
+центром всей логики оформления листа.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Все
+изменения штампа должны концентрироваться в данном модуле.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Интерфейс
+Gallery</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Система
+использует два режима.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>VIEW</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Режим
+просмотра.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Отображает:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Фотографии</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Даты</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Навигацию</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Без
+служебных элементов.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:18.0pt;font-family:"Arial",sans-serif;color:#222222'>LAYOUT</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Рабочий
+режим.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Позволяет:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Назначать Facade</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Назначать Element</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Назначать Contractor</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Назначать Operation</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Редактировать комментарии</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Формировать PDF</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Настраивать параметры PDF</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Режим
+ADMIN считается устаревшей концепцией.</span></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Функции
+администрирования перенесены в Uploader.</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Архитектурные
+ограничения</span></b></p>
+
+<p class=MsoNormal style='line-height:normal;background:white'><span
+style='font-size:12.0pt;font-family:"Arial",sans-serif;color:#222222'>Не
+допускается:</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление backend</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление Node.js сервера</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление SQL</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление Docker</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление React</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление Vue</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление Angular</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Добавление TypeScript</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Хранение справочников в Firebase</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Хранение комментариев в diary.json</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Статическое описание фотографий в HTML</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Наличие нескольких источников истины</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>для одного типа данных</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Изменение структуры проекта вне Uploader</span></p>
+
+<div class=MsoNormal align=center style='margin-bottom:0in;margin-bottom:.0001pt;
+text-align:center;line-height:normal'><span style='font-size:12.0pt;font-family:
+"Times New Roman",serif'>
+
+<hr size=2 width="100%" align=center>
+
+</span></div>
+
+<p class=MsoNormal style='line-height:normal;background:white'><b><span
+style='font-size:24.0pt;font-family:"Arial",sans-serif;color:#222222'>Главный
+принцип системы</span></b></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Проект живёт на компьютере.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Локальный проект является источником истины</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>для структуры объекта.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Firebase является источником истины</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>для пользовательских данных.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Uploader управляет проектом.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>GitHub публикует проект.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Gallery работает с проектом.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Справочники принадлежат проекту.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Справочники являются независимыми классификаторами.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Пользователь работает с названиями.</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt;line-height:
+normal;background:white'><span style='font-size:10.0pt;font-family:"Courier New";
+color:#222222'>Система хранит ID.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>
