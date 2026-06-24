@@ -1968,12 +1968,15 @@ function setActiveTab() {
 
 document
 
+document
     .getElementById("view-tab")
     .addEventListener(
         "click",
         () => {
 
             currentMode = "view";
+
+            setActiveTab();
 
             console.log(
                 "Mode:",
@@ -2005,6 +2008,8 @@ document
             currentMode =
                 "admin";
 
+            setActiveTab();
+
             console.log(
                 "Mode:",
                 currentMode
@@ -2035,6 +2040,8 @@ document
             currentMode =
                 "layout";
 
+            setActiveTab();
+
             console.log(
                 "Mode:",
                 currentMode
@@ -2042,3 +2049,5 @@ document
 
         }
     );
+
+setActiveTab();
