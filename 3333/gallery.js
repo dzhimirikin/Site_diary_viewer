@@ -2067,6 +2067,21 @@ controls.forEach(
     }
 );
 
+
+const selectionInfo =
+    document.getElementById(
+        "selection-info"
+    );
+
+if (selectionInfo) {
+
+    selectionInfo.style.display =
+        isView
+            ? "none"
+            : "block";
+
+}
+
     console.log(
         "Apply mode:",
         currentMode
