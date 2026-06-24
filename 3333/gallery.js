@@ -1967,8 +1967,6 @@ function setActiveTab() {
 }
 
 document
-
-document
     .getElementById("view-tab")
     .addEventListener(
         "click",
