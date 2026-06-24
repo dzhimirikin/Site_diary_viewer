@@ -2146,6 +2146,12 @@ document
 
 currentMode = "view";
 
+
+console.log(
+    "ABOUT BUTTON:",
+    document.getElementById("about-tab")
+);
+
 setActiveTab();
 
 applyMode();
