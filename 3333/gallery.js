@@ -734,10 +734,18 @@ function updateSelectionCount() {
             ".photo-check:checked"
         ).length;
 
-    document.getElementById(
-        "selection-info"
-    ).textContent =
+    const info =
+        document.getElementById(
+            "selection-info"
+        );
+
+    info.textContent =
         `Selected: ${count} photos`;
+
+    info.style.display =
+        currentMode === "view"
+            ? "none"
+            : "block";
 }
 
 async function loadLogo() {
