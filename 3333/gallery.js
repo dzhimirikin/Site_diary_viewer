@@ -2014,6 +2014,54 @@ function applyMode() {
         currentMode === "about";
 
 
+// Верхняя информация проекта
+
+const projectInfo =
+    document.getElementById(
+        "project-info"
+    );
+
+if (projectInfo) {
+
+    projectInfo.style.display =
+        isAbout
+            ? "none"
+            : "block";
+}
+
+
+// Блок "Selected: ..."
+
+const selectionInfo =
+    document.getElementById(
+        "selection-info"
+    );
+
+if (selectionInfo) {
+
+    selectionInfo.style.display =
+        (isAdmin || isLayout)
+            ? "block"
+            : "none";
+}
+
+
+// Панель кнопок
+
+const selectionButtons =
+    document.querySelector(
+        ".selection-buttons"
+    );
+
+if (selectionButtons) {
+
+    selectionButtons.style.display =
+        isAbout
+            ? "none"
+            : "block";
+}
+
+
 document
     .getElementById(
         "gallery"
@@ -2106,30 +2154,16 @@ controls.forEach(
 
         if (el) {
 
-            el.style.display =
-                isView
-                    ? "none"
-                    : "inline-block";
+el.style.display =
+    (isAdmin || isLayout)
+        ? "inline-block"
+        : "none";
 
         }
 
     }
 );
 
-
-const selectionInfo =
-    document.getElementById(
-        "selection-info"
-    );
-
-if (selectionInfo) {
-
-    selectionInfo.style.display =
-        isView
-            ? "none"
-            : "block";
-
-}
 
     console.log(
         "Apply mode:",
