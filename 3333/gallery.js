@@ -1966,20 +1966,80 @@ function setActiveTab() {
 
 }
 
+
+// ВКЛЮЧЕНИЕ ИНТЕРФЕЙСА ДЛЯ РАЗНЫХ РЕЖИМОВ
+
+function applyMode() {
+
+    const isView =
+        currentMode === "view";
+
+    const isAdmin =
+        currentMode === "admin";
+
+    const isLayout =
+        currentMode === "layout";
+
+
+    // комментарии под фото
+
+    document
+        .querySelectorAll(
+            ".photo-comment"
+        )
+        .forEach(
+            el => {
+
+                el.style.display =
+                    (isAdmin || isLayout)
+                        ? "block"
+                        : "none";
+
+            }
+        );
+
+
+    // кнопка раскрытия комментария
+
+    document
+        .querySelectorAll(
+            ".expand-comment"
+        )
+        .forEach(
+            el => {
+
+                el.style.display =
+                    (isAdmin || isLayout)
+                        ? "block"
+                        : "none";
+
+            }
+        );
+
+
+    console.log(
+        "Apply mode:",
+        currentMode
+    );
+
+}
+
 document
     .getElementById("view-tab")
     .addEventListener(
         "click",
         () => {
 
-            currentMode = "view";
+currentMode = "view";
 
-            setActiveTab();
+setActiveTab();
 
-            console.log(
-                "Mode:",
-                currentMode
-            );
+applyMode();
+
+console.log(
+    "Mode:",
+    currentMode
+);
 
         }
     );
@@ -2003,15 +2063,17 @@ document
                 return;
             }
 
-            currentMode =
-                "admin";
+currentMode =
+    "admin";
 
-            setActiveTab();
+setActiveTab();
 
-            console.log(
-                "Mode:",
-                currentMode
-            );
+applyMode();
+
+console.log(
+    "Mode:",
+    currentMode
+);
 
         }
     );
@@ -2035,17 +2097,21 @@ document
                 return;
             }
 
-            currentMode =
-                "layout";
+currentMode =
+    "layout";
 
-            setActiveTab();
+setActiveTab();
 
-            console.log(
-                "Mode:",
-                currentMode
-            );
+applyMode();
+
+console.log(
+    "Mode:",
+    currentMode
+);
 
         }
     );
 
 setActiveTab();
+
+applyMode();
