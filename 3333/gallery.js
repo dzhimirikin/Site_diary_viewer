@@ -2017,6 +2017,53 @@ function applyMode() {
         );
 
 
+// чекбоксы выбора
+
+document
+    .querySelectorAll(
+        ".photo-check"
+    )
+    .forEach(
+        el => {
+
+            el.style.display =
+                isView
+                    ? "none"
+                    : "block";
+
+        }
+    );
+
+
+const controls = [
+
+    "select-all",
+    "clear-all",
+    "export-pdf",
+    "settings-btn"
+
+];
+
+controls.forEach(
+    id => {
+
+        const el =
+            document.getElementById(
+                id
+            );
+
+        if (el) {
+
+            el.style.display =
+                isView
+                    ? "none"
+                    : "inline-block";
+
+        }
+
+    }
+);
+
     console.log(
         "Apply mode:",
         currentMode
