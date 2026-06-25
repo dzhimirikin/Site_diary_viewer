@@ -2013,6 +2013,11 @@ function applyMode() {
     const isAbout =
         currentMode === "about";
 
+    const contentFrame =
+        document.querySelector(
+            ".content-frame"
+        );
+
 
 // Верхняя информация проекта
 
@@ -2062,14 +2067,14 @@ if (selectionButtons) {
 }
 
 
-document
-    .getElementById(
-        "gallery"
-    )
-    .style.display =
+if (contentFrame) {
+
+    contentFrame.style.display =
         isAbout
             ? "none"
             : "block";
+
+}
 
 document
     .getElementById(
