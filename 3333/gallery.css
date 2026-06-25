@@ -7,9 +7,15 @@
 }
 
 body {
+
     font-family: Arial, sans-serif;
+
     margin: 30px auto;
-    max-width: 1600px;
+
+    width: calc(100% - 60px);
+
+    max-width: 1800px;
+
 }
 
 h1 {
