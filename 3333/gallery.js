@@ -298,6 +298,41 @@ function loadPdfSettings() {
 }
 
 
+function applyGalleryScale() {
+
+    const width =
+
+        parseInt(
+
+            localStorage.getItem(
+                "gallery-photo-width"
+            )
+
+        ) || 250;
+
+
+    document.documentElement.style.setProperty(
+
+        "--photo-width",
+
+        width + "px"
+
+    );
+
+
+    document.documentElement.style.setProperty(
+
+        "--photo-height",
+
+        Math.round(
+            width * 0.72
+        ) + "px"
+
+    );
+
+}
+
+
 function savePdfSettings() {
 
     localStorage.setItem(
@@ -828,6 +863,8 @@ async function loadProjectInfo() {
     await loadProjectInfo();
 
     await loadAbout();
+
+    applyGalleryScale();
 
     await loadDiary();
 

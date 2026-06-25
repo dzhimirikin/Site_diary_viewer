@@ -1,3 +1,11 @@
+:root {
+
+    --photo-width: 250px;
+
+    --photo-height: 180px;
+
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 30px auto;
@@ -38,8 +46,8 @@ h1 {
 }
 
 .photos img {
-    width: 250px;
-    height: 180px;
+    width: var(--photo-width);
+    height: var(--photo-height);
     object-fit: cover;
     cursor: pointer;
     border-radius: 6px;
