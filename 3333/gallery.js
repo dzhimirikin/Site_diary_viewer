@@ -2013,11 +2013,16 @@ function applyMode() {
     const isAbout =
         currentMode === "about";
 
-    const contentFrame =
-        document.querySelector(
-            ".content-frame"
-        );
 
+const galleryPage =
+    document.getElementById(
+        "gallery-page"
+    );
+
+const aboutPage =
+    document.getElementById(
+        "about-page"
+    );
 
 // Верхняя информация проекта
 
@@ -2067,23 +2072,25 @@ if (selectionButtons) {
 }
 
 
-if (contentFrame) {
 
-    contentFrame.style.display =
+
+if (galleryPage) {
+
+    galleryPage.style.display =
         isAbout
             ? "none"
             : "block";
 
 }
 
-document
-    .getElementById(
-        "about-page"
-    )
-    .style.display =
+if (aboutPage) {
+
+    aboutPage.style.display =
         isAbout
             ? "block"
             : "none";
+
+}
 
 
     // комментарии под фото
