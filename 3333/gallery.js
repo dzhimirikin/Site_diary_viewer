@@ -300,19 +300,30 @@ function loadPdfSettings() {
 
 function applyGalleryScale() {
 
-    //--------------------------------------------------
-    // Количество фотографий в строке
-    //--------------------------------------------------
+//--------------------------------------------------
+// Количество фотографий в строке
+//--------------------------------------------------
 
-    const density =
+const slider =
 
-        parseInt(
+    document.getElementById(
+        "gallery-scale"
+    );
 
-            localStorage.getItem(
-                "gallery-density"
-            )
+const sliderValue =
 
-        ) || 5;
+    parseInt(
+
+        localStorage.getItem(
+            "gallery-density"
+        )
+
+    ) || 5;
+
+
+const density =
+
+    10 - sliderValue;
 
 
     //--------------------------------------------------
