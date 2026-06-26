@@ -300,22 +300,93 @@ function loadPdfSettings() {
 
 function applyGalleryScale() {
 
-    const width =
+    //--------------------------------------------------
+    // Количество фотографий в строке
+    //--------------------------------------------------
+
+    const density =
 
         parseInt(
 
             localStorage.getItem(
-                "gallery-photo-width"
+                "gallery-density"
             )
 
-        ) || 250;
+        ) || 5;
 
+
+    //--------------------------------------------------
+    // Контейнер галереи
+    //--------------------------------------------------
+
+    const gallery =
+
+        document.getElementById(
+            "gallery"
+        );
+
+    if (!gallery)
+        return;
+
+
+    //--------------------------------------------------
+    // Ширина контейнера
+    //--------------------------------------------------
+
+    const containerWidth =
+        gallery.clientWidth;
+
+
+    //--------------------------------------------------
+    // Расстояние между карточками
+    //--------------------------------------------------
+
+    const photos =
+
+        gallery.querySelector(
+            ".photos"
+        );
+
+    const gap =
+
+        photos
+
+            ? parseInt(
+                getComputedStyle(
+                    photos
+                ).gap
+              ) || 12
+
+            : 12;
+
+
+    //--------------------------------------------------
+    // Вычисляем ширину карточки
+    //--------------------------------------------------
+
+    const photoWidth =
+
+        Math.floor(
+
+            (
+                containerWidth -
+                gap * (density - 1)
+            )
+
+            / density
+
+        );
+
+
+    //--------------------------------------------------
+    // CSS-переменные
+    //--------------------------------------------------
 
     document.documentElement.style.setProperty(
 
         "--photo-width",
 
-        width + "px"
+        photoWidth + "px"
 
     );
 
@@ -325,10 +396,41 @@ function applyGalleryScale() {
         "--photo-height",
 
         Math.round(
-            width * 0.72
+            photoWidth * 0.72
         ) + "px"
 
     );
+
+
+    //--------------------------------------------------
+    // Обновляем ползунок
+    //--------------------------------------------------
+
+    const slider =
+
+        document.getElementById(
+            "gallery-scale"
+        );
+
+    if (slider)
+        slider.value = density;
+
+
+    //--------------------------------------------------
+    // Обновляем подпись
+    //--------------------------------------------------
+
+    const text =
+
+        document.getElementById(
+            "gallery-scale-text"
+        );
+
+    if (text)
+
+        text.textContent =
+            density +
+            " фото в строке";
 
 }
 
@@ -864,9 +966,9 @@ async function loadProjectInfo() {
 
     await loadAbout();
 
-    applyGalleryScale();
-
     await loadDiary();
+
+    applyGalleryScale();
 
 })();
 
@@ -2379,3 +2481,48 @@ document
 setActiveTab();
 
 applyMode();
+
+//--------------------------------------------------
+// Ползунок плотности галереи
+//--------------------------------------------------
+
+const galleryScaleSlider =
+    document.getElementById(
+        "gallery-scale"
+    );
+
+if (galleryScaleSlider) {
+
+    galleryScaleSlider.addEventListener(
+
+        "input",
+
+        function () {
+
+            localStorage.setItem(
+
+                "gallery-density",
+
+                this.value
+
+            );
+
+            applyGalleryScale();
+
+        }
+
+    );
+
+}
+
+//--------------------------------------------------
+// Перестроение галереи при изменении окна
+//--------------------------------------------------
+
+window.addEventListener(
+
+    "resize",
+
+    applyGalleryScale
+
+);
