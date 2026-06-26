@@ -349,7 +349,46 @@ h1{
 
 
 /*---------------------------------------------------------
-   10. Selection Buttons
+     10.1 Gallery Scale
+---------------------------------------------------------*/
+
+#gallery-scale-panel{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin:12px 0 4px;
+
+}
+
+#gallery-scale{
+
+    width:320px;
+
+    cursor:pointer;
+
+}
+
+#gallery-scale-text{
+
+    text-align:center;
+
+    font-size:13px;
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+
+/*---------------------------------------------------------
+   10.2 Selection Buttons
 ---------------------------------------------------------*/
 
 .selection-buttons{
