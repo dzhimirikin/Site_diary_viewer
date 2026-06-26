@@ -2093,6 +2093,23 @@ if (selectionInfo) {
 }
 
 
+// Ползунок размера фотографий
+
+const galleryScaleContainer =
+    document.getElementById(
+        "gallery-scale-container"
+    );
+
+if (galleryScaleContainer) {
+
+    galleryScaleContainer.style.display =
+        isView
+            ? "block"
+            : "none";
+
+}
+
+
 // Панель кнопок
 
 const selectionButtons =
