@@ -1,161 +1,446 @@
-:root {
+/*=========================================================
+    Site Diary
+    Gallery CSS v2.0
+=========================================================*/
 
-    --photo-width: 250px;
 
-    --photo-height: 180px;
+/*---------------------------------------------------------
+    1. CSS Variables
+---------------------------------------------------------*/
+
+:root{
+
+    --photo-width:250px;
+
+    --photo-height:180px;
+
+    --content-width:1800px;
+
+    --border-color:#cfcfcf;
+
+    --tab-border:#999;
+
+    --background:#ececec;
+
+    --panel:#ffffff;
+
+    --text:#222;
 
 }
 
-body {
 
-    font-family: Arial, sans-serif;
+/*---------------------------------------------------------
+    2. Base Layout
+---------------------------------------------------------*/
 
-    margin: 30px auto;
+html{
 
-    width: calc(100% - 60px);
-
-    max-width: 1800px;
+    height:100%;
 
 }
 
-h1 {
-    font-family: Bahnschrift Condensed, Bahnschrift, Arial, sans-serif;
-    text-align: center;
-    font-size: 56px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin-bottom: 0px;
-}
+body{
 
-.project-info {
-    text-align: center;
-    color: #666;
-    font-size: 14px;
-    margin-bottom: 40px;
-    line-height: 1.5;
-}
+    margin:30px;
 
-.day {
-    margin-bottom: 50px;
-}
+    font-family:Arial,sans-serif;
 
-.day h2 {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-}
+    color:var(--text);
 
-.photos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
+    background:var(--background);
 
-.photos img {
-    width: var(--photo-width);
-    height: var(--photo-height);
-    object-fit: cover;
-    cursor: pointer;
-    border-radius: 6px;
-}
-
-.photos img:hover {
-    opacity: 0.9;
-}
-
-.photo-wrapper {
-    position: relative;
-}
-
-.photo-check {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    width: 22px;
-    height: 22px;
-    z-index: 10;
-    cursor: pointer;
-}
-
-.selection-buttons {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.selection-buttons button {
-    margin: 0 5px;
-    padding: 8px 16px;
-    cursor: pointer;
-}
-
-.photo-comment {
-    width: 100%;
-    margin-top: 4px;
-    font-size: 12px;
-    resize: vertical;
-    box-sizing: border-box;
-}
-
-.pdf-error {
-    border: 4px solid red !important;
-    box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
-    border-radius: 4px;
-}
-
-.comment-error {
-    border: 2px solid red !important;
-    background: #ffe5e5 !important;
-}
-
-.expand-comment {
-
-    margin-top: 4px;
-
-    width: 100%;
-
-    cursor: pointer;
-
-    font-size: 18px;
-
-    font-weight: bold;
 }
 
 
-#editor-modal {
+/*---------------------------------------------------------
+    3. Header
+---------------------------------------------------------*/
 
-    display: none;
+h1{
 
-    position: fixed;
+    font-family:
+        Bahnschrift Condensed,
+        Bahnschrift,
+        Arial,
+        sans-serif;
 
-    inset: 0;
+    text-align:center;
 
-    background:
+    font-size:56px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    margin:0;
+
+}
+
+.project-info{
+
+    text-align:center;
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+    margin:12px 0 40px;
+
+}
+
+
+/*---------------------------------------------------------
+    4. Navigation Tabs
+---------------------------------------------------------*/
+
+.mode-tabs{
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:0;
+
+    margin-top:10px;
+
+}
+
+.mode-tabs button{
+
+    padding:10px 30px;
+
+    border:1px solid var(--tab-border);
+
+    border-bottom:none;
+
+    background:#e6e6e6;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    margin:0;
+
+    position:relative;
+
+    top:1px;
+
+    transition:
+        background .15s,
+        color .15s;
+
+}
+
+.mode-tabs button:hover{
+
+    background:#f3f3f3;
+
+}
+
+.mode-tabs button.active{
+
+    background:white;
+
+    z-index:5;
+
+}
+
+.mode-separator{
+
+    border-top:1px solid var(--tab-border);
+
+    margin:0;
+
+}
+
+
+/*---------------------------------------------------------
+    5. Main Content Frame
+---------------------------------------------------------*/
+
+.content-frame{
+
+    width:100%;
+
+    max-width:var(--content-width);
+
+    margin:0 auto;
+
+    box-sizing:border-box;
+
+    background:var(--panel);
+
+    border:1px solid var(--border-color);
+
+    border-radius:0 4px 4px 4px;
+
+    padding:18px 24px 24px;
+
+}
+
+
+/*---------------------------------------------------------
+    6. Pages
+---------------------------------------------------------*/
+
+.page{
+
+    display:none;
+
+    width:100%;
+
+    box-sizing:border-box;
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+
+/*---------------------------------------------------------
+    7. Common Sections
+---------------------------------------------------------*/
+
+.day{
+
+    margin-bottom:50px;
+
+}
+
+.day h2{
+
+    border-bottom:1px solid #ddd;
+
+    padding-bottom:8px;
+
+    margin-bottom:15px;
+
+}
+
+/*---------------------------------------------------------
+    8. Gallery Layout
+---------------------------------------------------------*/
+
+.photos{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:12px;
+
+    align-items:flex-start;
+
+}
+
+.photo-wrapper{
+
+    position:relative;
+
+    width:var(--photo-width);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.photos img{
+
+    width:100%;
+
+    height:var(--photo-height);
+
+    object-fit:cover;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    display:block;
+
+    transition:
+        opacity .15s,
+        transform .15s;
+
+}
+
+.photos img:hover{
+
+    opacity:.92;
+
+}
+
+
+/*---------------------------------------------------------
+    9. Photo Card
+---------------------------------------------------------*/
+
+.photo-check{
+
+    position:absolute;
+
+    left:8px;
+
+    top:8px;
+
+    width:22px;
+
+    height:22px;
+
+    cursor:pointer;
+
+    z-index:20;
+
+}
+
+
+.photo-comment{
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    margin-top:6px;
+
+    padding:6px;
+
+    font-size:12px;
+
+    resize:vertical;
+
+}
+
+
+.expand-comment{
+
+    width:100%;
+
+    margin-top:4px;
+
+    padding:4px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+/*---------------------------------------------------------
+   10. Selection Buttons
+---------------------------------------------------------*/
+
+.selection-buttons{
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.selection-buttons button{
+
+    padding:8px 16px;
+
+    margin:0 5px;
+
+    cursor:pointer;
+
+}
+
+
+/*---------------------------------------------------------
+   11. Validation
+---------------------------------------------------------*/
+
+.pdf-error{
+
+    border:4px solid red !important;
+
+    border-radius:4px;
+
+    box-shadow:
+        0 0 8px
         rgba(
+            255,
             0,
             0,
-            0,
-            0.35
+            .45
         );
 
-    z-index: 10000;
 }
 
-#editor-window {
+.comment-error{
 
-    position: absolute;
+    border:2px solid red !important;
 
-    left: 120px;
-    top: 80px;
+    background:#ffe5e5 !important;
 
-    width: 1200px;
-    height: 800px;
+}
 
-    min-width: 600px;
-    min-height: 400px;
+/*---------------------------------------------------------
+   12. Modal Overlay
+---------------------------------------------------------*/
 
-    background: white;
+#editor-modal,
+#settings-modal{
 
-    border-radius: 8px;
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+}
+
+
+/*---------------------------------------------------------
+   13. Editor Window
+---------------------------------------------------------*/
+
+#editor-modal{
+
+    z-index:10000;
+
+}
+
+#editor-window{
+
+    position:absolute;
+
+    left:120px;
+
+    top:80px;
+
+    width:1200px;
+
+    height:800px;
+
+    min-width:600px;
+
+    min-height:400px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    resize:both;
+
+    background:white;
+
+    border-radius:8px;
 
     box-shadow:
         0 10px 30px
@@ -163,394 +448,498 @@ h1 {
             0,
             0,
             0,
-            0.3
+            .30
         );
 
-    display: flex;
-
-    flex-direction: column;
-
-    resize: both;
-
-    overflow: hidden;
-}
-
-#editor-header {
-
-    padding: 12px 16px;
-
-    background: #444;
-
-    color: white;
-
-    font-size: 22px;
-
-    font-weight: bold;
-
-    cursor: move;
-
-    user-select: none;
-
-    display: flex;
-
-    justify-content: space-between;
-
-    align-items: center;
 }
 
 
-#editor-close {
+/*---------------------------------------------------------
+   14. Editor Header
+---------------------------------------------------------*/
 
-    background: transparent;
+#editor-header{
 
-    border: none;
+    display:flex;
 
-    color: white;
+    justify-content:space-between;
 
-    font-size: 24px;
+    align-items:center;
 
-    cursor: pointer;
+    padding:12px 16px;
 
-    width: 28px;
+    background:#444;
 
-    height: 28px;
+    color:white;
 
-    padding: 0;
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:move;
+
+    user-select:none;
+
+}
+
+#editor-close{
+
+    width:28px;
+
+    height:28px;
+
+    padding:0;
+
+    border:none;
+
+    background:transparent;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:24px;
+
 }
 
 
-#editor-text {
+/*---------------------------------------------------------
+   15. Editor Text
+---------------------------------------------------------*/
 
-    flex: 1;
+#editor-text{
 
-    width: 100%;
+    flex:1;
 
-    box-sizing: border-box;
+    width:100%;
 
-    border: none;
+    border:none;
 
-    outline: none;
+    outline:none;
 
-    padding: 15px;
+    resize:none;
 
-    font-size: 18px;
+    box-sizing:border-box;
 
-    line-height: 1.5;
+    padding:15px;
 
-    resize: none;
-}
+    font-size:18px;
 
-#editor-buttons {
+    line-height:1.5;
 
-    padding: 10px;
-
-    display: flex;
-
-    justify-content: flex-end;
-
-    gap: 10px;
-
-    border-top:
-        1px solid #ddd;
 }
 
 
-#photo-viewer {
+/*---------------------------------------------------------
+   16. Editor Buttons
+---------------------------------------------------------*/
 
-    display: none;
+#editor-buttons{
 
-    position: fixed;
+    display:flex;
 
-    inset: 0;
+    justify-content:flex-end;
 
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.95
-        );
+    gap:10px;
 
-    z-index: 20000;
+    padding:10px;
 
-    justify-content: center;
+    border-top:1px solid #ddd;
 
-    align-items: center;
 }
 
-#viewer-image {
 
-    max-width: 95vw;
+/*---------------------------------------------------------
+   17. Photo Viewer
+---------------------------------------------------------*/
 
-    max-height: 95vh;
+#photo-viewer{
 
-    object-fit: contain;
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:20000;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.95);
+
 }
+
+#viewer-image{
+
+    max-width:95vw;
+
+    max-height:95vh;
+
+    object-fit:contain;
+
+}
+
+
+/*---------------------------------------------------------
+   18. Viewer Buttons
+---------------------------------------------------------*/
 
 #viewer-prev,
 #viewer-next,
-#viewer-close {
+#viewer-close{
 
-    position: absolute;
+    position:absolute;
 
-    background:
-        rgba(
-            255,
-            255,
-            255,
-            0.2
-        );
+    border:none;
 
-    color: white;
+    padding:12px;
 
-    border: none;
+    cursor:pointer;
 
-    cursor: pointer;
+    font-size:32px;
 
-    padding: 12px;
+    color:white;
 
-    font-size: 32px;
+    background:rgba(255,255,255,.20);
+
 }
 
-#viewer-prev {
+#viewer-prev{
 
-    left: 20px;
+    left:20px;
 
-    top: 50%;
+    top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
+
 }
 
-#viewer-next {
+#viewer-next{
 
-    right: 20px;
+    right:20px;
 
-    top: 50%;
+    top:50%;
 
-    transform:
-        translateY(-50%);
+    transform:translateY(-50%);
+
 }
 
-#viewer-close {
+#viewer-close{
 
-    top: 20px;
+    top:20px;
 
-    right: 20px;
+    right:20px;
+
 }
 
-#settings-modal {
 
-    display: none;
+/*---------------------------------------------------------
+   19. Settings Window
+---------------------------------------------------------*/
 
-    position: fixed;
+#settings-modal{
 
-    inset: 0;
+    z-index:11000;
 
-    background:
-        rgba(
-            0,
-            0,
-            0,
-            0.35
-        );
-
-    z-index: 11000;
 }
 
-#settings-window {
+#settings-window{
 
-    width: 400px;
+    position:absolute;
 
-    background: white;
+    left:50%;
 
-    padding: 20px;
+    top:50%;
 
-    border-radius: 8px;
+    transform:translate(-50%,-50%);
 
-    position: absolute;
+    width:400px;
 
-    left: 50%;
+    display:flex;
 
-    top: 50%;
+    flex-direction:column;
 
-    transform:
-        translate(
-            -50%,
-            -50%
-        );
+    gap:10px;
 
-    display: flex;
+    padding:20px;
 
-    flex-direction: column;
+    background:white;
 
-    gap: 10px;
+    border-radius:8px;
+
 }
 
-.settings-buttons {
+.settings-buttons{
 
-    display: flex;
+    display:flex;
 
-    justify-content: flex-end;
+    justify-content:flex-end;
 
-    gap: 10px;
+    gap:10px;
 
-    margin-top: 15px;
+    margin-top:15px;
+
 }
 
-.mode-tabs {
+/*---------------------------------------------------------
+   20. ABOUT
+---------------------------------------------------------*/
 
-    display: inline-flex;
+.about-page{
 
-    gap: 4px;
+    width:100%;
+
+    box-sizing:border-box;
+
+    padding:20px;
+
+    line-height:1.6;
+
 }
 
-.mode-tabs button {
+.about-page h2{
 
-    padding: 8px 16px;
+    margin-top:50px;
 
-    cursor: pointer;
+    margin-bottom:20px;
+
 }
 
-.active-tab {
+.about-page h3{
 
-    font-weight: bold;
+    margin-top:35px;
 
-    border: 2px solid #444;
+    margin-bottom:15px;
+
 }
 
-.mode-tabs {
+.about-page p{
 
-    display: flex;
+    margin:8px 0;
 
-    justify-content: flex-start;
-
-    margin-bottom: 0;
-
-    margin-top: 10px;
-
-    gap: 0;
 }
 
-.mode-tabs button {
+.about-page ul,
+.about-page ol{
 
-    padding: 10px 30px;
+    margin-left:30px;
 
-    border: 1px solid #999;
+    margin-bottom:15px;
 
-    border-bottom: none;
-
-    background: #e6e6e6;
-
-    cursor: pointer;
-
-    font-weight: 600;
-
-    margin: 0;
-
-    position: relative;
-
-    top: 1px;
 }
 
-.mode-tabs button.active {
+.about-page table{
 
-    background: white;
+    width:100%;
 
-    border-color: #999;
+    border-collapse:collapse;
 
-    z-index: 10;
+    margin:20px 0;
+
 }
 
-.mode-separator {
+.about-page th{
 
-    border-top: 1px solid #999;
+    background:#f0f0f0;
 
-    margin-bottom: 20px;
+    font-weight:bold;
+
 }
 
-.content-frame {
+.about-page th,
+.about-page td{
 
-    border: 1px solid #cfcfcf;
+    border:1px solid #d0d0d0;
 
-    border-radius: 0 4px 4px 4px;
+    padding:8px 10px;
 
-    padding: 16px 24px 24px 24px;
+    text-align:left;
 
-    margin-top: 0px;
+    vertical-align:top;
 
-    background: white;
 }
 
-.about-page {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
-    line-height: 1.6;
+.about-page code{
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
 }
 
-.about-page h1 {
 
-    margin-top: 0;
+/*---------------------------------------------------------
+   21. Architecture Schemes
+---------------------------------------------------------*/
+
+.architecture{
+
+    display:table;
+
+    margin:25px auto;
+
+    padding:20px 30px;
+
+    background:#fafafa;
+
+    border:1px solid #d0d0d0;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size:15px;
+
+    line-height:1.45;
+
+    white-space:pre;
+
+    text-align:left;
+
 }
 
-.about-page h2 {
 
-    margin-top: 30px;
+/*---------------------------------------------------------
+   22. Tree Structures
+---------------------------------------------------------*/
+
+.tree{
+
+    display:table;
+
+    margin:25px auto;
+
+    padding:20px 30px;
+
+    background:#fafafa;
+
+    border:1px solid #d0d0d0;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size:15px;
+
+    line-height:1.45;
+
+    white-space:pre;
+
+    text-align:left;
+
 }
 
-.architecture {
 
-    text-align: center;
+/*---------------------------------------------------------
+   23. VIEW / LAYOUT
+---------------------------------------------------------*/
 
-    font-family: Consolas,
-                 "Courier New",
-                 monospace;
+.view-mode .layout-only{
 
-    font-size: 16px;
+    display:none;
 
-    line-height: 1.4;
-
-    white-space: pre;
-
-    margin: 30px auto;
 }
 
-.about-page h2 {
+.layout-mode .view-only{
 
-    margin-top: 50px;
+    display:none;
 
-    margin-bottom: 20px;
 }
 
-.about-page h3 {
 
-    margin-top: 35px;
+/*---------------------------------------------------------
+   24. Responsive
+---------------------------------------------------------*/
 
-    margin-bottom: 15px;
+@media (max-width:1200px){
+
+    body{
+
+        margin:15px;
+
+    }
+
+    .content-frame{
+
+        padding:16px;
+
+    }
+
+    #editor-window{
+
+        left:20px;
+
+        top:20px;
+
+        width:calc(100vw - 40px);
+
+        height:calc(100vh - 40px);
+
+    }
+
 }
 
-.tree {
 
-    display: table;
+@media (max-width:800px){
 
-    margin: 25px auto;
+    :root{
 
-    padding: 20px 30px;
+        --photo-width:180px;
 
-    border: 1px solid #d0d0d0;
+        --photo-height:130px;
 
-    background: #fafafa;
+    }
 
-    font-family: Consolas,
-                 "Courier New",
-                 monospace;
+    h1{
 
-    font-size: 15px;
+        font-size:36px;
 
-    line-height: 1.5;
+    }
 
-    white-space: pre;
+    .mode-tabs{
 
-    text-align: left;
+        flex-wrap:wrap;
+
+    }
+
+    .mode-tabs button{
+
+        flex:1;
+
+        min-width:120px;
+
+    }
+
+}
+
+
+@media (max-width:600px){
+
+    :root{
+
+        --photo-width:150px;
+
+        --photo-height:110px;
+
+    }
+
+    .about-page{
+
+        padding:10px;
+
+    }
+
+    .about-page table{
+
+        display:block;
+
+        overflow-x:auto;
+
+    }
+
 }
