@@ -9,44 +9,101 @@
 </head>
 <body>
 
+    <div class="page-container">
+
     <h1 id="project-title"></h1>
 
-<div id="project-info"
-     class="project-info">
-</div>
+<div class="mode-tabs">
 
-<div id="selection-info"
-     class="project-info">
-    Selected: 0 photos
-</div>
-
-
-<div class="selection-buttons">
-
-    <button id="select-all">
-        Select All
+    <button id="view-tab"
+            class="active">
+        VIEW
     </button>
 
-    <button id="clear-all">
-        Clear
+    <button id="admin-tab">
+        ADMIN
     </button>
 
-    <button id="export-pdf">
-        Export PDF
+    <button id="layout-tab">
+        LAYOUT
     </button>
 
-
-    <button id="settings-btn">
-        ⚙ Settings
-    </button>
-
-    <button id="admin-btn">
-        Admin
+    <button id="about-tab">
+        ABOUT
     </button>
 
 </div>
 
-    <div id="gallery"></div>
+<div class="content-frame">
+
+    <div id="gallery-page">
+
+        <div id="project-info"
+             class="project-info">
+        </div>
+
+<div id="gallery-scale-container">
+
+<div id="gallery-scale-panel">
+
+<span>Мелко</span>
+
+<input
+    id="gallery-scale"
+    type="range"
+    min="2"
+    max="8"
+    value="5">
+
+<span>Крупно</span>
+
+</div>
+
+<div id="gallery-scale-text">
+
+    5 фото в строке
+
+</div>
+
+</div>
+
+        <div id="selection-info"
+             class="project-info">
+            Selected: 0 photos
+        </div>
+
+        <div class="selection-buttons">
+
+            <button id="select-all">
+                Select All
+            </button>
+
+            <button id="clear-all">
+                Clear
+            </button>
+
+            <button id="export-pdf">
+                Export PDF
+            </button>
+
+            <button id="settings-btn">
+                ⚙ Settings
+            </button>
+
+        </div>
+
+        <div id="gallery"></div>
+
+    </div>
+
+    <div id="about-page"
+         class="about-page"
+         style="display:none;">
+    </div>
+
+</div>      <!-- content-frame -->
+
+</div>      <!-- page-container -->
 
 <div id="editor-modal">
 
@@ -82,8 +139,6 @@
         </button>
 
     </div>
-
-</div>
 
 </div>
 

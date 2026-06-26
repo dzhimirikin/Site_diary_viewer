@@ -240,6 +240,12 @@ let projectInfo = {};
 let isAdmin = false;
 
 
+let currentMode = "view";
+
+const ADMIN_PASSWORD = "0000";
+const LAYOUT_PASSWORD = "1111";
+
+
 let currentPhotos = [];
 
 let currentIndex = 0;
@@ -289,6 +295,153 @@ function loadPdfSettings() {
                 "pdf-draw-title-block"
             ) !== "false"
     };
+}
+
+
+function applyGalleryScale() {
+
+//--------------------------------------------------
+// Количество фотографий в строке
+//--------------------------------------------------
+
+const slider =
+
+    document.getElementById(
+        "gallery-scale"
+    );
+
+const sliderValue =
+
+    parseInt(
+
+        localStorage.getItem(
+            "gallery-density"
+        )
+
+    ) || 5;
+
+
+const density =
+
+    10 - sliderValue;
+
+
+    //--------------------------------------------------
+    // Контейнер галереи
+    //--------------------------------------------------
+
+    const gallery =
+
+        document.getElementById(
+            "gallery"
+        );
+
+    if (!gallery)
+        return;
+
+
+    //--------------------------------------------------
+    // Ширина контейнера
+    //--------------------------------------------------
+
+    const containerWidth =
+        gallery.clientWidth;
+
+
+    //--------------------------------------------------
+    // Расстояние между карточками
+    //--------------------------------------------------
+
+    const photos =
+
+        gallery.querySelector(
+            ".photos"
+        );
+
+    const gap =
+
+        photos
+
+            ? parseInt(
+                getComputedStyle(
+                    photos
+                ).gap
+              ) || 12
+
+            : 12;
+
+
+    //--------------------------------------------------
+    // Вычисляем ширину карточки
+    //--------------------------------------------------
+
+    const photoWidth =
+
+        Math.floor(
+
+            (
+                containerWidth -
+                gap * (density - 1)
+            )
+
+            / density
+
+        );
+
+
+    //--------------------------------------------------
+    // CSS-переменные
+    //--------------------------------------------------
+
+    document.documentElement.style.setProperty(
+
+        "--photo-width",
+
+        photoWidth + "px"
+
+    );
+
+
+    document.documentElement.style.setProperty(
+
+        "--photo-height",
+
+        Math.round(
+            photoWidth * 0.72
+        ) + "px"
+
+    );
+
+
+//--------------------------------------------------
+// Обновляем ползунок
+//--------------------------------------------------
+
+if (slider) {
+
+    slider.value =
+
+        10 - density;
+
+}
+
+
+    //--------------------------------------------------
+    // Обновляем подпись
+    //--------------------------------------------------
+
+    const text =
+
+        document.getElementById(
+            "gallery-scale-text"
+        );
+
+    if (text)
+
+        text.textContent =
+            density +
+            " фото в строке";
+
 }
 
 
@@ -348,9 +501,6 @@ function applyPdfFont(
     );
 }
 
-
-const ADMIN_PASSWORD =
-    "0000";
 
 async function loadPhotoData(
     project,
@@ -419,6 +569,23 @@ async function savePhotoData(
 }
 
 
+async function loadAbout() {
+
+    const response =
+        await fetch(
+            "../about.html"
+        );
+
+    const html =
+        await response.text();
+
+    document
+        .getElementById(
+            "about-page"
+        )
+        .innerHTML =
+        html;
+}
 
 async function loadDiary() {
 
@@ -719,6 +886,9 @@ wrapper.appendChild(
             section
         );
     }
+
+    applyMode();
+
 }
 
 function updateSelectionCount() {
@@ -728,10 +898,18 @@ function updateSelectionCount() {
             ".photo-check:checked"
         ).length;
 
-    document.getElementById(
-        "selection-info"
-    ).textContent =
+    const info =
+        document.getElementById(
+            "selection-info"
+        );
+
+    info.textContent =
         `Selected: ${count} photos`;
+
+    info.style.display =
+        currentMode === "view"
+            ? "none"
+            : "block";
 }
 
 async function loadLogo() {
@@ -796,7 +974,11 @@ async function loadProjectInfo() {
 
     await loadProjectInfo();
 
+    await loadAbout();
+
     await loadDiary();
+
+    applyGalleryScale();
 
 })();
 
@@ -1361,145 +1543,7 @@ pdf.save(
         }
     );
 
-document
-    .getElementById(
-        "admin-btn"
-    )
-    .addEventListener(
-        "click",
-        () => {
-
-            // Выход из режима администратора
-            if (isAdmin) {
-
-    document
-        .querySelectorAll(
-            ".photo-comment"
-        )
-        .forEach(
-            textarea => {
-
-                const project =
-                    document
-                        .getElementById(
-                            "project-title"
-                        )
-                        .textContent;
-
-                const key =
-                    `${project}_${textarea.dataset.day}_${textarea.dataset.file}`;
-
-
-
-            }
-        );
-
-                isAdmin = false;
-
-                document
-                    .querySelectorAll(
-                        ".photo-comment"
-                    )
-                    .forEach(
-                        textarea => {
-
-                            textarea.readOnly =
-                                true;
-
-                            textarea.style.display =
-                                "none";
-
-                        }
-                    );
-
-                document
-                    .querySelectorAll(
-                        ".expand-comment"
-                    )
-                    .forEach(
-                        button => {
-
-                            button.style.display =
-                                "none";
-
-                        }
-                    );
-
-                document
-                    .getElementById(
-                        "admin-btn"
-                    )
-                    .textContent =
-                        "Admin";
-
-                alert(
-                    "Admin mode disabled"
-                );
-
-                return;
-            }
-
-            // Вход в режим администратора
-            const password =
-                prompt(
-                    "Admin password"
-                );
-
-            if (
-                password !==
-                ADMIN_PASSWORD
-            ) {
-
-                alert(
-                    "Wrong password"
-                );
-
-                return;
-            }
-
-            isAdmin = true;
-
-            document
-                .querySelectorAll(
-                    ".photo-comment"
-                )
-                .forEach(
-                    textarea => {
-
-                        textarea.readOnly =
-                            false;
-
-                        textarea.style.display =
-                            "block";
-
-                    }
-                );
-
-            document
-                .querySelectorAll(
-                    ".expand-comment"
-                )
-                .forEach(
-                    button => {
-
-                        button.style.display =
-                            "block";
-
-                    }
-                );
-
-            document
-                .getElementById(
-                    "admin-btn"
-                )
-                .textContent =
-                    "Logout";
-
-            alert(
-                "Admin mode enabled"
-            );
-        }
-    );
+//00001111
 
 let currentTextarea =
     null;
@@ -2073,3 +2117,422 @@ document
                 value;
         }
     );
+
+
+function setActiveTab() {
+
+    document
+        .querySelectorAll(
+            ".mode-tabs button"
+        )
+        .forEach(
+            btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            }
+        );
+
+    document
+        .getElementById(
+            `${currentMode}-tab`
+        )
+        .classList.add(
+            "active"
+        );
+
+}
+
+
+// ВКЛЮЧЕНИЕ ИНТЕРФЕЙСА ДЛЯ РАЗНЫХ РЕЖИМОВ
+
+function applyMode() {
+
+    const isView =
+        currentMode === "view";
+
+    const isAdmin =
+        currentMode === "admin";
+
+    const isLayout =
+        currentMode === "layout";
+
+    const isAbout =
+        currentMode === "about";
+
+
+const galleryPage =
+    document.getElementById(
+        "gallery-page"
+    );
+
+const aboutPage =
+    document.getElementById(
+        "about-page"
+    );
+
+// Верхняя информация проекта
+
+const projectInfo =
+    document.getElementById(
+        "project-info"
+    );
+
+if (projectInfo) {
+
+    projectInfo.style.display =
+        isAbout
+            ? "none"
+            : "block";
+}
+
+
+// Блок "Selected: ..."
+
+const selectionInfo =
+    document.getElementById(
+        "selection-info"
+    );
+
+if (selectionInfo) {
+
+    selectionInfo.style.display =
+        (isAdmin || isLayout)
+            ? "block"
+            : "none";
+}
+
+
+// Ползунок размера фотографий
+
+const galleryScaleContainer =
+    document.getElementById(
+        "gallery-scale-container"
+    );
+
+if (galleryScaleContainer) {
+
+    galleryScaleContainer.style.display =
+        isView
+            ? "block"
+            : "none";
+
+}
+
+
+// Панель кнопок
+
+const selectionButtons =
+    document.querySelector(
+        ".selection-buttons"
+    );
+
+if (selectionButtons) {
+
+    selectionButtons.style.display =
+        isAbout
+            ? "none"
+            : "block";
+}
+
+
+
+
+if (galleryPage) {
+
+    galleryPage.style.display =
+        isAbout
+            ? "none"
+            : "block";
+
+}
+
+if (aboutPage) {
+
+    aboutPage.style.display =
+        isAbout
+            ? "block"
+            : "none";
+
+}
+
+
+    // комментарии под фото
+
+    document
+        .querySelectorAll(
+            ".photo-comment"
+        )
+        .forEach(
+            el => {
+
+                el.style.display =
+                    (isAdmin || isLayout)
+                        ? "block"
+                        : "none";
+
+            }
+        );
+
+
+    // кнопка раскрытия комментария
+
+    document
+        .querySelectorAll(
+            ".expand-comment"
+        )
+        .forEach(
+            el => {
+
+                el.style.display =
+                    (isAdmin || isLayout)
+                        ? "block"
+                        : "none";
+
+            }
+        );
+
+
+// чекбоксы выбора
+
+document
+    .querySelectorAll(
+        ".photo-check"
+    )
+    .forEach(
+        el => {
+
+            el.style.display =
+                isView
+                    ? "none"
+                    : "block";
+
+        }
+    );
+
+
+const controls = [
+
+    "select-all",
+    "clear-all",
+    "export-pdf",
+    "settings-btn"
+
+];
+
+controls.forEach(
+    id => {
+
+        const el =
+            document.getElementById(
+                id
+            );
+
+        if (el) {
+
+el.style.display =
+    (isAdmin || isLayout)
+        ? "inline-block"
+        : "none";
+
+        }
+
+    }
+);
+
+
+    console.log(
+        "Apply mode:",
+        currentMode
+    );
+
+}
+
+document
+    .getElementById("view-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+currentMode = "view";
+
+
+console.log(
+    "ABOUT BUTTON:",
+    document.getElementById("about-tab")
+);
+
+setActiveTab();
+
+applyMode();
+
+console.log(
+    "Mode:",
+    currentMode
+);
+
+        }
+    );
+
+document
+    .getElementById("admin-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            const password =
+                prompt(
+                    "Admin password"
+                );
+
+if (
+    password === null
+) {
+
+    return;
+}
+
+if (
+    password !==
+    ADMIN_PASSWORD
+) {
+
+    alert(
+        "Invalid admin password"
+    );
+
+    return;
+}
+
+currentMode =
+    "admin";
+
+setActiveTab();
+
+applyMode();
+
+console.log(
+    "Mode:",
+    currentMode
+);
+
+        }
+    );
+
+document
+    .getElementById("layout-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            const password =
+                prompt(
+                    "Layout password"
+                );
+
+            if (
+                password === null
+            ) {
+
+                return;
+            }
+
+            if (
+                password !==
+                LAYOUT_PASSWORD
+            ) {
+
+                alert(
+                    "Invalid layout password"
+                );
+
+                return;
+            }
+
+            currentMode =
+                "layout";
+
+            setActiveTab();
+
+            applyMode();
+
+            console.log(
+                "Mode:",
+                currentMode
+            );
+
+        }
+    );
+
+document
+    .getElementById("about-tab")
+    .addEventListener(
+        "click",
+        () => {
+
+            currentMode =
+                "about";
+
+            setActiveTab();
+
+            applyMode();
+
+            console.log(
+                "Mode:",
+                currentMode
+            );
+
+        }
+    );
+
+
+setActiveTab();
+
+applyMode();
+
+//--------------------------------------------------
+// Ползунок плотности галереи
+//--------------------------------------------------
+
+const galleryScaleSlider =
+    document.getElementById(
+        "gallery-scale"
+    );
+
+if (galleryScaleSlider) {
+
+    galleryScaleSlider.addEventListener(
+
+        "input",
+
+        function () {
+
+            localStorage.setItem(
+
+                "gallery-density",
+
+                this.value
+
+            );
+
+            applyGalleryScale();
+
+        }
+
+    );
+
+}
+
+//--------------------------------------------------
+// Перестроение галереи при изменении окна
+//--------------------------------------------------
+
+window.addEventListener(
+
+    "resize",
+
+    applyGalleryScale
+
+);
