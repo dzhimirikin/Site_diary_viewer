@@ -440,7 +440,7 @@ if (slider) {
 
         text.textContent =
             density +
-            " фото в строке";
+            " photos per row";
 
 }
 
