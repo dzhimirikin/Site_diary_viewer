@@ -931,6 +931,20 @@ companyLogo =
 companyLogo.src =
     "logo.png";
 
+siteDiaryLogo = new Image();
+
+siteDiaryLogo.src = "site-diary-ui.png";
+
+try{
+
+    await siteDiaryLogo.decode();
+
+}catch(e){
+
+    siteDiaryLogo = null;
+
+}
+
     try {
 
         await companyLogo.decode();
@@ -1131,6 +1145,34 @@ if (s.drawFrame) {
         185, // ширина
         287  // высота
     );
+}
+
+if (s.drawLogo && siteDiaryLogo) {
+
+    pdf.saveGraphicsState();
+
+    pdf.translate(7, 285);
+
+    pdf.rotate(-90);
+
+    pdf.addImage(
+
+        siteDiaryLogo,
+
+        "SVG",
+
+        0,
+
+        0,
+
+        78,
+
+        15
+
+    );
+
+    pdf.restoreGraphicsState();
+
 }
 
 
