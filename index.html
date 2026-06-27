@@ -2,28 +2,285 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photo Diary</title>
 
-    <link rel="stylesheet" href="project.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
 
-<div class="app">
+    <div class="page-container">
 
-    <div class="start-panel">
+    <h1 id="project-title"></h1>
 
-        <h1>Projects</h1>
+<div class="mode-tabs">
 
-        <div id="projects"></div>
+    <button id="view-tab"
+            class="active">
+        VIEW
+    </button>
+
+    <button id="admin-tab">
+        ADMIN
+    </button>
+
+    <button id="layout-tab">
+        LAYOUT
+    </button>
+
+    <button id="about-tab">
+        ABOUT
+    </button>
+
+</div>
+
+<div class="content-frame">
+
+<div class="header-panel">
+
+    <div class="header-left">
+
+        <img
+            src="../logo/site-diary-ui.svg"
+            class="site-logo"
+            alt="Photo Diary">
+
+    </div>
+
+    <div class="header-center">
+
+        <div id="project-info"
+             class="project-info">
+        </div>
+
+        <div id="gallery-scale-container">
+
+            <div id="gallery-scale-panel">
+
+                <span>Small</span>
+
+                <input
+                    id="gallery-scale"
+                    type="range"
+                    min="2"
+                    max="8"
+                    value="5">
+
+                <span>Large</span>
+
+            </div>
+
+            <div id="gallery-scale-text">
+                5 photos per row
+            </div>
+
+        </div>
 
     </div>
 
 </div>
 
-<script src="projects.js"></script>
+<div class="header-right"></div>
+
+    <div id="gallery-page">
+
+
+        <div id="selection-info"
+             class="project-info">
+            Selected: 0 photos
+        </div>
+
+        <div class="selection-buttons">
+
+            <button id="select-all">
+                Select All
+            </button>
+
+            <button id="clear-all">
+                Clear
+            </button>
+
+            <button id="export-pdf">
+                Export PDF
+            </button>
+
+            <button id="settings-btn">
+                ⚙ Settings
+            </button>
+
+        </div>
+
+        <div id="gallery"></div>
+
+    </div>
+
+    <div id="about-page"
+         class="about-page"
+         style="display:none;">
+    </div>
+
+</div>      <!-- content-frame -->
+
+</div>      <!-- page-container -->
+
+<div id="editor-modal">
+
+<div id="editor-window">
+
+    <div id="editor-header">
+
+        <span>
+            Comment editor
+        </span>
+
+        <button
+            id="editor-close">
+            ✕
+        </button>
+
+    </div>
+
+    <textarea
+        id="editor-text">
+    </textarea>
+
+    <div id="editor-buttons">
+
+        <button
+            id="editor-save">
+            Save
+        </button>
+
+        <button
+            id="editor-cancel">
+            Cancel
+        </button>
+
+    </div>
+
+</div>
+
+</div>
+
+    <!-- Viewer фотографий -->
+    <div id="photo-viewer">
+
+        <button id="viewer-prev">
+            ◀
+        </button>
+
+        <img id="viewer-image">
+
+        <button id="viewer-next">
+            ▶
+        </button>
+
+        <button id="viewer-close">
+            ✕
+        </button>
+
+    </div>
+
+<div id="settings-modal">
+
+    <div id="settings-window">
+
+        <h2>
+            PDF Settings
+        </h2>
+
+<label>
+    Text size
+</label>
+
+<input
+    id="pdf-text-size"
+    type="number"
+    step="0.5"
+>
+
+<label>
+    Comment lines
+</label>
+
+<input
+    id="pdf-comment-lines"
+    type="number"
+    min="1"
+    max="55"
+>
+
+<hr>
+
+<label>
+    Stamp font size
+</label>
+
+<input
+    id="pdf-stamp-size"
+    type="number"
+    step="0.5"
+>
+
+<label>
+    Stamp character spacing
+</label>
+
+<input
+    id="pdf-stamp-charspace"
+    type="number"
+    step="0.01"
+>
+
+<hr>
+
+<label>
+    <input
+        id="pdf-draw-frame"
+        type="checkbox"
+    >
+    Draw frame
+</label>
+
+<label>
+    <input
+        id="pdf-draw-title-block"
+        type="checkbox"
+    >
+    Draw title block
+</label>
+
+<label>
+    <input
+        type="checkbox"
+        id="pdf-draw-logo"
+        checked>
+    Draw SITE DIARY logo
+</label>
+
+        <div class="settings-buttons">
+
+            <button id="settings-save">
+                Save
+            </button>
+
+            <button id="settings-cancel">
+                Cancel
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="../isocpeur-normal.js"></script>
+
+    <script type="module" src="firebase.js"></script>
+
+    <script src="gallery.js"></script>
 
 </body>
 </html>
