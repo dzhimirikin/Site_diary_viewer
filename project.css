@@ -82,7 +82,7 @@ body{
 
     height:100%;
 
-    padding:40px;
+    padding:88px 40px 40px 40px;
 
     background:rgba(255,255,255,.12);
 
@@ -97,11 +97,21 @@ body{
 
 .start-panel h1{
 
-    color:#1e73be;
+    font-family:
+        Bahnschrift Condensed,
+        Bahnschrift,
+        Arial,
+        sans-serif;
 
-    font-size:46px;
+    font-size:60px;
 
-    margin-bottom:30px;
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    color:#1F75BC;
+
+    margin:0 0 30px 20px;
 
 }
 
