@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "project": "456",
+  "name": "",
+  "object": "Тестовый объект",
+  "client": "Клиент",
+  "projectManager": "Менеджер",
+  "headDesigner": "Дизайнер 1",
+  "reviewedBy": "Проверяющий",
+  "designer1": "Дизайнер 2",
+  "scale": "1:1",
+  "logo": "logo.png"
+}
