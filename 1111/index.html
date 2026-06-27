@@ -36,36 +36,54 @@
 
 <div class="content-frame">
 
-    <div id="gallery-page">
+<div class="header-panel">
+
+    <div class="header-left">
+
+        <img
+            src="../logo/site-diary-ui.svg"
+            class="site-logo"
+            alt="Photo Diary">
+
+    </div>
+
+    <div class="header-center">
 
         <div id="project-info"
              class="project-info">
         </div>
 
-<div id="gallery-scale-container">
+        <div id="gallery-scale-container">
 
-<div id="gallery-scale-panel">
+            <div id="gallery-scale-panel">
 
-<span>Мелко</span>
+                <span>Small</span>
 
-<input
-    id="gallery-scale"
-    type="range"
-    min="2"
-    max="8"
-    value="5">
+                <input
+                    id="gallery-scale"
+                    type="range"
+                    min="2"
+                    max="8"
+                    value="5">
 
-<span>Крупно</span>
+                <span>Large</span>
+
+            </div>
+
+            <div id="gallery-scale-text">
+                5 photos per row
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-<div id="gallery-scale-text">
+<div class="header-right"></div>
 
-    5 фото в строке
+    <div id="gallery-page">
 
-</div>
-
-</div>
 
         <div id="selection-info"
              class="project-info">
@@ -230,6 +248,14 @@
         type="checkbox"
     >
     Draw title block
+</label>
+
+<label>
+    <input
+        type="checkbox"
+        id="pdf-draw-logo"
+        checked>
+    Draw SITE DIARY logo
 </label>
 
         <div class="settings-buttons">
