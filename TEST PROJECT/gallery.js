@@ -4,6 +4,8 @@ function drawTitleBlock(
     y0
 ) {
 
+    const s = loadPdfSettings();
+
     pdf.setDrawColor(0);
     pdf.setLineWidth(0.2);
 
@@ -933,7 +935,7 @@ companyLogo.src =
 
 siteDiaryLogo = new Image();
 
-siteDiaryLogo.src = "site-diary-ui.png";
+siteDiaryLogo.src = "../logo/site-diary-ui.svg";
 
 try{
 
