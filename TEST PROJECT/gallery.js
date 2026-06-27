@@ -1543,10 +1543,10 @@ if (s.drawLogo && siteDiaryLogo) {
         "PNG",
 
         2.5,
-        118,
+        222,
 
-        12,
-        74
+        15,
+        70
 
     );
 
