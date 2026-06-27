@@ -933,15 +933,24 @@ companyLogo =
 companyLogo.src =
     "logo.png";
 
-siteDiaryLogo = new Image();
+try {
 
-siteDiaryLogo.src = "../logo/site-diary-ui.svg";
+    const response = await fetch("../logo/site-diary-ui_270.png");
 
-try{
+    const blob = await response.blob();
 
-    await siteDiaryLogo.decode();
+    siteDiaryLogo = await new Promise(resolve => {
 
-}catch(e){
+        const reader = new FileReader();
+
+        reader.onload = () => resolve(reader.result);
+
+        reader.readAsDataURL(blob);
+
+    });
+
+}
+catch {
 
     siteDiaryLogo = null;
 
@@ -1151,32 +1160,16 @@ if (s.drawFrame) {
 
 if (s.drawLogo && siteDiaryLogo) {
 
-    pdf.saveGraphicsState();
-
-    pdf.translate(7, 285);
-
-    pdf.rotate(-90);
-
     pdf.addImage(
-
         siteDiaryLogo,
-
-        "SVG",
-
-        0,
-
-        0,
-
-        78,
-
-        15
-
+        "PNG",
+        2.5,
+        118,
+        12,
+        74
     );
 
-    pdf.restoreGraphicsState();
-
 }
-
 
 if (s.drawTitleBlock) {
 
@@ -1185,6 +1178,7 @@ if (s.drawTitleBlock) {
         105,
         261
     );
+
 }
 
 
@@ -1539,6 +1533,24 @@ if (
 ) {
 
 pdf.addPage();
+
+if (s.drawLogo && siteDiaryLogo) {
+
+    pdf.addImage(
+
+        siteDiaryLogo,
+
+        "PNG",
+
+        2.5,
+        118,
+
+        12,
+        74
+
+    );
+
+}
 
 pdf.setLineWidth(
     0.25
