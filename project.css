@@ -71,11 +71,13 @@ body{
 
     width:520px;
 
-    min-height:100vh;
+    height:100%;
 
-    padding:50px;
+    padding:40px;
 
     background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(6px);
 
 }
 
@@ -84,13 +86,13 @@ body{
     HEADER
 =========================================================*/
 
-.start-panel{
+.start-panel h1{
 
-    width:520px;
+    color:#1e73be;
 
-    height:100%;
+    font-size:46px;
 
-    padding:50px;
+    margin-bottom:30px;
 
 }
 
