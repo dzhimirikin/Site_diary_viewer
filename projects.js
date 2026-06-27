@@ -1,6 +1,7 @@
 const projects = [
     "1111",
-    "TEST PROJECT"
+    "TEST PROJECT",
+    "456"
 ];
 
 const container =
