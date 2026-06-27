@@ -1,0 +1,177 @@
+/*=========================================================
+    SITE DIARY
+    PROJECT SELECTOR
+=========================================================*/
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+body{
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:#e9e9e9;
+
+    color:#222;
+
+}
+
+
+/*=========================================================
+    START PANEL
+=========================================================*/
+
+.start-panel{
+
+    width:520px;
+
+    height:100%;
+
+    padding:50px;
+
+}
+
+
+/*=========================================================
+    HEADER
+=========================================================*/
+
+.start-panel h1{
+
+    font-size:34px;
+
+    font-weight:600;
+
+    margin-bottom:30px;
+
+    color:#1e73be;
+
+}
+
+
+/*=========================================================
+    APPLICATION
+=========================================================*/
+
+.app{
+
+    width:1600px;
+
+    height:900px;
+
+    margin:20px auto;
+
+    background-image:url("start_screen.png");
+
+    background-repeat:no-repeat;
+
+    background-position:center;
+
+    background-size:cover;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+
+/*=========================================================
+    PROJECT LIST
+=========================================================*/
+
+#projects{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+/*=========================================================
+    PROJECT LINKS
+=========================================================*/
+
+#projects a{
+
+    display:block;
+
+    padding:15px 18px;
+
+    text-decoration:none;
+
+    color:#1b1b1b;
+
+    background:#ffffff;
+
+    border:1px solid #d7d7d7;
+
+    border-radius:8px;
+
+    transition:.2s;
+
+}
+
+#projects a:hover{
+
+    border-color:#1e73be;
+
+    box-shadow:
+        0 6px 20px
+        rgba(
+            0,
+            0,
+            0,
+            .08
+        );
+
+    transform:translateY(-2px);
+
+}
+
+
+/*=========================================================
+    BUTTONS
+=========================================================*/
+
+button{
+
+    cursor:pointer;
+
+}
+
+
+/*=========================================================
+    INPUTS
+=========================================================*/
+
+input,
+select{
+
+    font-size:15px;
+
+    padding:10px 12px;
+
+}

@@ -15,12 +15,12 @@ function drawTitleBlock(
         31
     );
 
-if (logoImage) {
+if (companyLogo) {
 
     try {
 
         pdf.addImage(
-            logoImage,
+            companyLogo,
             "PNG",
 
             x0 + 2,
@@ -45,9 +45,6 @@ if (logoImage) {
 applyPdfFont(
     pdf
 );
-
-const s =
-    loadPdfSettings();
 
 pdf.setFontSize(
     s.stampSize
@@ -233,7 +230,9 @@ pdf.setCharSpace(
 }
 
 
-let logoImage = null;
+let companyLogo = null;
+
+let siteDiaryLogo = null;
 
 let projectInfo = {};
 
@@ -290,10 +289,15 @@ function loadPdfSettings() {
                 "pdf-draw-frame"
             ) !== "false",
 
-        drawTitleBlock:
-            localStorage.getItem(
-                "pdf-draw-title-block"
-            ) !== "false"
+drawTitleBlock:
+    localStorage.getItem(
+        "pdf-draw-title-block"
+    ) !== "false",
+
+drawLogo:
+    localStorage.getItem(
+        "pdf-draw-logo"
+    ) !== "false"
     };
 }
 
@@ -486,6 +490,13 @@ function savePdfSettings() {
         "pdf-draw-title-block",
         document.getElementById(
             "pdf-draw-title-block"
+        ).checked
+    );
+
+    localStorage.setItem(
+        "pdf-draw-logo",
+        document.getElementById(
+            "pdf-draw-logo"
         ).checked
     );
 }
@@ -914,15 +925,15 @@ function updateSelectionCount() {
 
 async function loadLogo() {
 
-    logoImage =
-        new Image();
+companyLogo =
+    new Image();
 
-    logoImage.src =
-        "logo.png";
+companyLogo.src =
+    "logo.png";
 
     try {
 
-        await logoImage.decode();
+        await companyLogo.decode();
 
         console.log(
             "Logo loaded"
@@ -934,7 +945,7 @@ async function loadLogo() {
             "Logo not found"
         );
 
-        logoImage = null;
+        companyLogo = null;
     }
 
 }
@@ -2038,6 +2049,13 @@ document
     )
     .checked =
         s.drawTitleBlock;
+
+document
+    .getElementById(
+        "pdf-draw-logo"
+    )
+    .checked =
+        s.drawLogo;
 
 document
     .getElementById(
