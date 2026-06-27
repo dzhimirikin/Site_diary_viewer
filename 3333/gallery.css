@@ -203,9 +203,7 @@ h1{
 
     display:grid;
 
-    grid-template-columns:450px 1fr;
-
-    column-gap:60px;
+    grid-template-columns:450px 1fr 450px;
 
     align-items:start;
 
@@ -218,6 +216,12 @@ h1{
     display:flex;
 
     align-items:flex-start;
+
+}
+
+.header-right{
+
+    width:450px;
 
 }
 
