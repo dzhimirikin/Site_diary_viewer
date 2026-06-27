@@ -33,6 +33,14 @@ body{
 
     color:#222;
 
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:100vh;
+
 }
 
 
@@ -78,8 +86,6 @@ body{
 
     height:900px;
 
-    margin:20px auto;
-
     background-image:url("start_screen.png");
 
     background-repeat:no-repeat;
@@ -91,6 +97,13 @@ body{
     overflow:hidden;
 
     position:relative;
+
+    background-color:white;
+
+    border-radius:12px;
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.18);
 
 }
 
