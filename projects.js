@@ -1,37 +1,112 @@
-const projects = [
-    "1111",
-    "TEST PROJECT",
-    "456",
-    "232323"
+let allProjects = [];
 
-];
+const search =
+    document.getElementById(
+        "search"
+    );
 
-const container =
+const list =
     document.getElementById(
         "projects"
     );
 
-for (const project of projects) {
-
-    const link =
-        document.createElement("a");
-
-    link.href =
-        `${project}/`;
-
-    link.textContent =
-        project;
-
-    link.style.display =
-        "block";
-
-    link.style.margin =
-        "20px";
-
-    link.style.fontSize =
-        "24px";
-
-    container.appendChild(
-        link
+const openButton =
+    document.getElementById(
+        "openProject"
     );
+
+async function loadProjects() {
+
+    const response =
+        await fetch(
+            "index.json"
+        );
+
+    const data =
+        await response.json();
+
+    allProjects =
+        data.projects.sort();
+
+    fillProjects(
+        allProjects
+    );
+
 }
+
+function fillProjects(
+    projects
+) {
+
+    list.innerHTML = "";
+
+    for (const project of projects) {
+
+        const option =
+            document.createElement(
+                "option"
+            );
+
+        option.value =
+            project;
+
+        option.textContent =
+            project;
+
+        list.appendChild(
+            option
+        );
+
+    }
+
+}
+
+search.addEventListener(
+    "input",
+
+    () => {
+
+        const text =
+            search.value
+                .toLowerCase();
+
+        const filtered =
+            allProjects.filter(
+
+                p =>
+                    p
+                        .toLowerCase()
+                        .includes(
+                            text
+                        )
+
+            );
+
+        fillProjects(
+            filtered
+        );
+
+    }
+
+);
+
+openButton.addEventListener(
+
+    "click",
+
+    () => {
+
+        if (
+            !list.value
+        ) {
+            return;
+        }
+
+        window.location =
+            `${list.value}/`;
+
+    }
+
+);
+
+loadProjects();
