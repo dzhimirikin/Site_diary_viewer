@@ -520,13 +520,19 @@ async function loadPhotoData(
     file
 ) {
 
+const documentId =
+    file.replaceAll(
+        "/",
+        "_"
+    );
+
 const ref =
     window.firebaseApi.doc(
         window.firebaseApi.db,
         "projects",
         project,
         "photos",
-        file
+        documentId
     );
 
 const snap =
@@ -551,13 +557,19 @@ async function savePhotoData(
     data
 ) {
 
+const documentId =
+    file.replaceAll(
+        "/",
+        "_"
+    );
+
     const ref =
         window.firebaseApi.doc(
             window.firebaseApi.db,
             "projects",
             project,
             "photos",
-            file
+            documentId
         );
 
     await window.firebaseApi.setDoc(
@@ -567,6 +579,9 @@ async function savePhotoData(
             elementId: 0,
             operationId: 0,
             contractorId: 0,
+
+            photoId:
+            file,
 
             ...data,
 
