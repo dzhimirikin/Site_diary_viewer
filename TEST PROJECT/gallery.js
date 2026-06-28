@@ -520,13 +520,19 @@ async function loadPhotoData(
     file
 ) {
 
+const documentId =
+    file.replaceAll(
+        "/",
+        "_"
+    );
+
 const ref =
     window.firebaseApi.doc(
         window.firebaseApi.db,
         "projects",
         project,
         "photos",
-        file
+        documentId
     );
 
 const snap =
@@ -551,13 +557,19 @@ async function savePhotoData(
     data
 ) {
 
+const documentId =
+    file.replaceAll(
+        "/",
+        "_"
+    );
+
     const ref =
         window.firebaseApi.doc(
             window.firebaseApi.db,
             "projects",
             project,
             "photos",
-            file
+            documentId
         );
 
     await window.firebaseApi.setDoc(
@@ -567,6 +579,9 @@ async function savePhotoData(
             elementId: 0,
             operationId: 0,
             contractorId: 0,
+
+            photoId:
+            file,
 
             ...data,
 
@@ -662,7 +677,13 @@ async function loadDiary() {
         photos.className =
             "photos";
 
-for (const file of data.days[day]) {
+for (const photo of data.days[day]) {
+
+    const photoId =
+        photo.photoId;
+
+    const file =
+        photo.fileName;
 
     const comment = "";
 
@@ -705,15 +726,17 @@ img.onclick = () => {
         const d of days
     ) {
 
-        for (
-            const f of data.days[d]
-        ) {
+for (
+    const p of data.days[d]
+) {
 
-            allPhotos.push(
-                `diary/${d}/full/${f}`
-            );
+    allPhotos.push(
 
-        }
+        `diary/${d}/full/${p.fileName}`
+
+    );
+
+}
 
     }
 
@@ -758,7 +781,7 @@ textarea.value =
 
 loadPhotoData(
     project,
-    file
+    photoId
 ).then(
     cloud => {
 
@@ -786,7 +809,7 @@ textarea.dataset.day =
     day;
 
 textarea.dataset.file =
-    file;
+    photoId;
 
 console.log(
     "ADD BLUR:",
