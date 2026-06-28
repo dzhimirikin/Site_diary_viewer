@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "project": "TEST PROJECT",
+  "name": "",
+  "object": "Объект TEST PROJECT",
+  "client": "Клиент TEST PROJECT",
+  "projectManager": "Менеджер проекта TEST PROJECT",
+  "headDesigner": "Главный конструктор TEST PROJECT",
+  "reviewedBy": "Проверил TEST PROJECT",
+  "designer1": "Конструктор TEST PROJECT",
+  "scale": "1:1",
+  "logo": "logo.png"
+}
