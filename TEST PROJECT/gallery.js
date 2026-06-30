@@ -1726,6 +1726,84 @@ function renderAttributes(
         cloud?.comment || "—"
     );
 
+if (
+    cloud?.attributes
+) {
+
+    for (
+
+        const [key, value]
+
+        of Object.entries(
+
+            cloud.attributes
+
+        )
+
+    ) {
+
+        addAttribute(
+
+            container,
+
+            key,
+
+            value
+
+        );
+
+    }
+
+}
+
+}
+
+
+function addAttribute(
+    container,
+    title,
+    value
+) {
+
+    const block =
+        document.createElement(
+            "div"
+        );
+
+    block.className =
+        "info-block";
+
+    const caption =
+        document.createElement(
+            "div"
+        );
+
+    caption.className =
+        "info-title";
+
+    caption.textContent =
+        title;
+
+    const text =
+        document.createElement(
+            "div"
+        );
+
+    text.textContent =
+        value;
+
+    block.appendChild(
+        caption
+    );
+
+    block.appendChild(
+        text
+    );
+
+    container.appendChild(
+        block
+    );
+
 }
 
 
