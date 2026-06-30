@@ -26,6 +26,8 @@
 
     --text:#222;
 
+    --inspector-width:420px;
+
 }
 
 
@@ -713,7 +715,7 @@ h1{
 
 #viewer-info{
 
-    width:420px;
+    width:var(--inspector-width);
 
     background:white;
 
@@ -798,7 +800,7 @@ h1{
 
 #viewer-next{
 
-    right:20px;
+    right:calc(var(--inspector-width) + 20px);
 
     top:50%;
 
