@@ -526,6 +526,12 @@ const documentId =
         "_"
     );
 
+
+console.log(
+    "LOAD DOC:",
+    documentId
+);
+
 const ref =
     window.firebaseApi.doc(
         window.firebaseApi.db,
@@ -571,6 +577,21 @@ const documentId =
             "photos",
             documentId
         );
+
+console.log(
+    "SAVE:",
+    project
+);
+
+console.log(
+    "DOC ID:",
+    documentId
+);
+
+console.log(
+    "DATA:",
+    data
+);
 
     await window.firebaseApi.setDoc(
         ref,
