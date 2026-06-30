@@ -162,24 +162,84 @@
 
 </div>
 
-    <!-- Viewer фотографий -->
-    <div id="photo-viewer">
+<!-- =======================================================
+     PHOTO VIEWER
+======================================================== -->
+
+<div id="photo-viewer">
+
+    <div id="viewer-toolbar">
 
         <button id="viewer-prev">
             ◀
         </button>
 
-        <img id="viewer-image">
+        <div class="viewer-toolbar-spacer"></div>
 
-        <button id="viewer-next">
-            ▶
+        <button
+            id="viewer-info-btn">
+            ⓘ
         </button>
 
-        <button id="viewer-close">
+        <button
+            id="viewer-close">
             ✕
         </button>
 
     </div>
+
+
+    <div id="viewer-content">
+
+        <div id="viewer-photo">
+
+            <img id="viewer-image">
+
+            <button id="viewer-next">
+                ▶
+            </button>
+
+        </div>
+
+
+        <div id="viewer-info">
+
+            <h2>
+                Photo information
+            </h2>
+
+            <div class="info-block">
+
+                <div class="info-title">
+                    FILE
+                </div>
+
+                <div
+                    id="info-file">
+                    —
+                </div>
+
+            </div>
+
+
+            <div class="info-block">
+
+                <div class="info-title">
+                    DATE
+                </div>
+
+                <div
+                    id="info-date">
+                    —
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <div id="settings-modal">
 

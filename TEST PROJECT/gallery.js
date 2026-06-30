@@ -1640,20 +1640,125 @@ let currentTextarea =
 
 function showPhoto() {
 
+    const img =
+        document.getElementById(
+            "viewer-image"
+        );
+
+    img.src =
+        currentPhotos[
+            currentIndex
+        ];
+
+    const path =
+        currentPhotos[
+            currentIndex
+        ];
+
+    const parts =
+        path.split("/");
+
     document
         .getElementById(
-            "viewer-image"
+            "info-file"
         )
-        .src =
-            currentPhotos[
-                currentIndex
-            ];
+        .textContent =
+        parts[
+            parts.length - 1
+        ];
+
+    document
+        .getElementById(
+            "info-date"
+        )
+        .textContent =
+        parts[
+            parts.length - 3
+        ];
+
+}
+
+
+function toggleInspector() {
+
+    if (
+        currentMode !==
+        "layout"
+    ) {
+
+        return;
+
+    }
+
+    const panel =
+        document.getElementById(
+            "viewer-info"
+        );
+
+    panel.style.display =
+
+        panel.style.display ===
+        "none"
+
+            ? "block"
+
+            : "none";
+
 }
 
 function openViewer(
     photos,
     index
 ) {
+
+    currentPhotos =
+        photos;
+
+    currentIndex =
+        index;
+
+    showPhoto();
+
+    const viewer =
+        document.getElementById(
+            "photo-viewer"
+        );
+
+    const info =
+        document.getElementById(
+            "viewer-info"
+        );
+
+    const infoButton =
+        document.getElementById(
+            "viewer-info-btn"
+        );
+
+    if (
+        currentMode === "layout"
+    ) {
+
+        info.style.display =
+            "block";
+
+        infoButton.style.display =
+            "inline-block";
+
+    }
+    else {
+
+        info.style.display =
+            "none";
+
+        infoButton.style.display =
+            "none";
+
+    }
+
+    viewer.style.display =
+        "block";
+
+} {
 
     currentPhotos =
         photos;
@@ -1991,6 +2096,16 @@ document
     .getElementById(
         "viewer-close"
     )
+
+document
+    .getElementById(
+        "viewer-info-btn"
+    )
+    .addEventListener(
+        "click",
+        toggleInspector
+    );
+
     .addEventListener(
         "click",
         closeViewer

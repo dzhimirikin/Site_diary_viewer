@@ -662,8 +662,14 @@ h1{
 
 
 /*---------------------------------------------------------
-   17. Photo Viewer
+   17. PHOTO VIEWER
 ---------------------------------------------------------*/
+
+:root{
+
+    --inspector-width:420px;
+
+}
 
 #photo-viewer{
 
@@ -675,74 +681,196 @@ h1{
 
     z-index:20000;
 
+    background:#111;
+
+}
+
+/*---------------------------------------------------------
+   Toolbar
+---------------------------------------------------------*/
+
+#viewer-toolbar{
+
+    height:64px;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:0 18px;
+
+    background:#111;
+
+    border-bottom:1px solid #2b2b2b;
+
+}
+
+.viewer-toolbar-spacer{
+
+    flex:1;
+
+}
+
+#viewer-toolbar button{
+
+    width:44px;
+
+    height:44px;
+
+    margin-left:8px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+}
+
+#viewer-toolbar button:hover{
+
+    background:rgba(255,255,255,.12);
+
+}
+
+/*---------------------------------------------------------
+   Viewer Content
+---------------------------------------------------------*/
+
+#viewer-content{
+
+    display:flex;
+
+    height:calc(100vh - 64px);
+
+}
+
+/*---------------------------------------------------------
+   Photo Area
+---------------------------------------------------------*/
+
+#viewer-photo{
+
+    position:relative;
+
+    flex:1;
+
+    display:flex;
+
     justify-content:center;
 
     align-items:center;
 
-    background:rgba(0,0,0,.95);
+    overflow:hidden;
+
+    background:#111;
 
 }
 
 #viewer-image{
 
-    max-width:95vw;
+    max-width:100%;
 
-    max-height:95vh;
+    max-height:100%;
 
     object-fit:contain;
 
 }
 
-
 /*---------------------------------------------------------
-   18. Viewer Buttons
+   Right Arrow
 ---------------------------------------------------------*/
-
-#viewer-prev,
-#viewer-next,
-#viewer-close{
-
-    position:absolute;
-
-    border:none;
-
-    padding:12px;
-
-    cursor:pointer;
-
-    font-size:32px;
-
-    color:white;
-
-    background:rgba(255,255,255,.20);
-
-}
-
-#viewer-prev{
-
-    left:20px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-}
 
 #viewer-next{
 
+    position:absolute;
+
     right:20px;
 
     top:50%;
 
     transform:translateY(-50%);
 
+    width:56px;
+
+    height:56px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.18);
+
+    color:white;
+
+    font-size:30px;
+
+    cursor:pointer;
+
 }
 
-#viewer-close{
+/*---------------------------------------------------------
+   Inspector
+---------------------------------------------------------*/
 
-    top:20px;
+#viewer-info{
 
-    right:20px;
+    width:var(--inspector-width);
+
+    background:white;
+
+    border-left:1px solid #ddd;
+
+    display:none;
+
+    overflow:auto;
+
+    padding:36px;
+
+    box-sizing:border-box;
+
+}
+
+#viewer-info h2{
+
+    margin:0 0 30px;
+
+    font-size:28px;
+
+}
+
+.info-block{
+
+    padding:20px 0;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.info-title{
+
+    font-size:11px;
+
+    color:#888;
+
+    letter-spacing:1px;
+
+    margin-bottom:6px;
+
+}
+
+#info-file,
+#info-date{
+
+    font-size:16px;
+
+    line-height:1.5;
 
 }
 
