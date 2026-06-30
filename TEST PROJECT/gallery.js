@@ -574,21 +574,35 @@ const documentId =
 
     await window.firebaseApi.setDoc(
         ref,
-        {
-            facadeId: 0,
-            elementId: 0,
-            operationId: 0,
-            contractorId: 0,
+{
+    photoId:
+        file,
 
-            photoId:
-            file,
+    comment:
+        "",
 
-            ...data,
+    attributes: {
 
-            updatedAt:
-                window.firebaseApi
-                    .serverTimestamp()
-        },
+        contractorId: 0,
+
+        facadeId: 0,
+
+        floorId: 0,
+
+        zoneId: 0,
+
+        elementId: 0,
+
+        operationId: 0
+
+    },
+
+    ...data,
+
+    updatedAt:
+        window.firebaseApi
+            .serverTimestamp()
+},
         {
             merge: true
         }
