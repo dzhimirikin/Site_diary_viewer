@@ -691,13 +691,15 @@ h1{
 
 #viewer-toolbar{
 
-    height:64px;
+    position:relative;
+
+    height:52px;
 
     display:flex;
 
     align-items:center;
 
-    padding:0 18px;
+    padding:0 12px;
 
     background:#111;
 
@@ -705,9 +707,17 @@ h1{
 
 }
 
-.viewer-toolbar-spacer{
+.viewer-toolbar-center{
 
-    flex:1;
+    position:absolute;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:16px;
 
 }
 
@@ -747,7 +757,7 @@ h1{
 
     display:flex;
 
-    height:calc(100vh - 64px);
+    height:calc(100vh - 104px);
 
 }
 
@@ -761,9 +771,9 @@ h1{
 
     flex:1;
 
-    display:flex;
+    display:grid;
 
-    justify-content:center;
+    grid-template-columns:70px 1fr 70px;
 
     align-items:center;
 
@@ -775,6 +785,12 @@ h1{
 
 #viewer-image{
 
+    grid-column:2;
+
+    justify-self:center;
+
+    align-self:center;
+
     max-width:100%;
 
     max-height:100%;
@@ -784,18 +800,11 @@ h1{
 }
 
 /*---------------------------------------------------------
-   Right Arrow
+   Navigation Buttons
 ---------------------------------------------------------*/
 
+#viewer-prev,
 #viewer-next{
-
-    position:absolute;
-
-    right:20px;
-
-    top:50%;
-
-    transform:translateY(-50%);
 
     width:56px;
 
@@ -812,6 +821,49 @@ h1{
     font-size:30px;
 
     cursor:pointer;
+
+    transition:background .15s;
+
+}
+
+#viewer-prev:hover,
+#viewer-next:hover{
+
+    background:rgba(255,255,255,.28);
+
+}
+
+#viewer-next{
+
+    grid-column:3;
+
+    justify-self:center;
+
+    z-index:100;
+
+}
+
+#viewer-prev{
+
+    grid-column:1;
+
+    justify-self:center;
+
+    z-index:100;
+
+}
+
+/*---------------------------------------------------------
+   Viewer Bottom
+---------------------------------------------------------*/
+
+#viewer-bottom{
+
+    height:52px;
+
+    background:#111;
+
+    border-top:1px solid #2b2b2b;
 
 }
 
