@@ -1722,7 +1722,7 @@ function openViewer(
         )
         .style.display =
             "flex";
-
+}
 
 function closeViewer() {
 
