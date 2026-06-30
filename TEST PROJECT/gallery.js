@@ -816,7 +816,7 @@ textarea.value =
 
 loadPhotoData(
     project,
-    photoId
+    `diary/${day}/full/${file}`
 ).then(
     cloud => {
 
@@ -844,7 +844,7 @@ textarea.dataset.day =
     day;
 
 textarea.dataset.file =
-    photoId;
+    `diary/${day}/full/${file}`;
 
 console.log(
     "ADD BLUR:",
