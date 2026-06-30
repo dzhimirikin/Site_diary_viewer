@@ -1749,24 +1749,6 @@ console.log(
         .textContent =
             cloud?.comment || "—";
 
-const commentElement =
-    document.getElementById(
-        "info-comment"
-    );
-
-console.log(
-    "Element:",
-    commentElement
-);
-
-console.log(
-    "Comment:",
-    cloud.comment
-);
-
-commentElement.textContent =
-    cloud.comment;
-
 
         if (cloud) {
 
