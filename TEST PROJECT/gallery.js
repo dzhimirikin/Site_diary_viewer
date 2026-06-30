@@ -1652,7 +1652,7 @@ pdf.save(
 let currentTextarea =
     null;
 
-function showPhoto() {
+async function showPhoto() {
 
     const img =
         document.getElementById(
@@ -1664,6 +1664,13 @@ function showPhoto() {
             currentIndex
         ];
 
+const project =
+    document
+        .getElementById(
+            "project-title"
+        )
+        .textContent;
+
     const path =
         currentPhotos[
             currentIndex
@@ -1671,6 +1678,12 @@ function showPhoto() {
 
     const parts =
         path.split("/");
+
+const cloud =
+    await loadPhotoData(
+        project,
+        path
+    );
 
     document
         .getElementById(
@@ -1689,6 +1702,15 @@ function showPhoto() {
         parts[
             parts.length - 3
         ];
+
+        if (cloud) {
+
+            console.log(
+                "Firebase:",
+                cloud
+            );
+
+}
 
 }
 
