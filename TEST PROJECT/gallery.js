@@ -1676,6 +1676,18 @@ const project =
             currentIndex
         ];
 
+
+console.log(
+    "Project:",
+    project
+);
+
+console.log(
+    "Path:",
+    path
+);
+
+
     const parts =
         path.split("/");
 
@@ -1684,6 +1696,11 @@ const cloud =
         project,
         path
     );
+
+console.log(
+    "Cloud:",
+    cloud
+);
 
     document
         .getElementById(
@@ -1957,6 +1974,22 @@ const project =
             "project-title"
         )
         .textContent;
+
+const path =
+    currentPhotos[
+        currentIndex
+    ];
+
+console.log(
+    "Project:",
+    project
+);
+
+console.log(
+    "Path:",
+    path
+);
+
 
 await savePhotoData(
     project,
