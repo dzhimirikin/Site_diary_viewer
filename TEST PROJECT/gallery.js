@@ -1640,57 +1640,14 @@ let currentTextarea =
 
 function showPhoto() {
 
-    const image =
-
-        document.getElementById(
+    document
+        .getElementById(
             "viewer-image"
-        );
-
-    image.src =
-        currentPhotos[
-            currentIndex
-        ];
-
-    //--------------------------------------------------
-    // Inspector
-    //--------------------------------------------------
-
-    const path =
-
-        currentPhotos[
-            currentIndex
-        ];
-
-    const parts =
-
-        path.split("/");
-
-    const file =
-
-        parts[
-            parts.length - 1
-        ];
-
-    const day =
-
-        parts[
-            parts.length - 3
-        ];
-
-    document
-        .getElementById(
-            "info-file"
         )
-        .textContent =
-            file;
-
-    document
-        .getElementById(
-            "info-date"
-        )
-        .textContent =
-            day;
-
+        .src =
+            currentPhotos[
+                currentIndex
+            ];
 }
 
 function openViewer(
@@ -1705,16 +1662,6 @@ function openViewer(
         index;
 
     showPhoto();
-
-    const info =
-        document.getElementById(
-            "viewer-info"
-        );
-
-    info.style.display =
-        currentMode === "layout"
-            ? "block"
-            : "none";
 
     document
         .getElementById(
