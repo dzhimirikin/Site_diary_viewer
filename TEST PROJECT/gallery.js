@@ -1741,6 +1741,15 @@ console.log(
             parts.length - 3
         ];
 
+
+    document
+        .getElementById(
+            "info-comment"
+        )
+        .textContent =
+            cloud?.comment || "—";
+
+
         if (cloud) {
 
             console.log(
