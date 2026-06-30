@@ -1723,23 +1723,6 @@ function openViewer(
         .style.display =
             "flex";
 
-} {
-
-    currentPhotos =
-        photos;
-
-    currentIndex =
-        index;
-
-    showPhoto();
-
-    document
-        .getElementById(
-            "photo-viewer"
-        )
-        .style.display =
-            "flex";
-}
 
 function closeViewer() {
 
