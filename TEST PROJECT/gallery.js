@@ -1757,23 +1757,6 @@ function openViewer(
 
     viewer.style.display =
         "block";
-
-} {
-
-    currentPhotos =
-        photos;
-
-    currentIndex =
-        index;
-
-    showPhoto();
-
-    document
-        .getElementById(
-            "photo-viewer"
-        )
-        .style.display =
-            "flex";
 }
 
 function closeViewer() {
@@ -2096,6 +2079,10 @@ document
     .getElementById(
         "viewer-close"
     )
+    .addEventListener(
+        "click",
+        closeViewer
+    );
 
 document
     .getElementById(
@@ -2106,9 +2093,13 @@ document
         toggleInspector
     );
 
+document
+    .getElementById(
+        "viewer-info-btn"
+    )
     .addEventListener(
         "click",
-        closeViewer
+        toggleInspector
     );
 
 
