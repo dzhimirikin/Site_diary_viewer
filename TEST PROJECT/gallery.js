@@ -527,11 +527,6 @@ const documentId =
     );
 
 
-console.log(
-    "LOAD DOC:",
-    documentId
-);
-
 const ref =
     window.firebaseApi.doc(
         window.firebaseApi.db,
@@ -578,20 +573,6 @@ const documentId =
             documentId
         );
 
-console.log(
-    "SAVE:",
-    project
-);
-
-console.log(
-    "DOC ID:",
-    documentId
-);
-
-console.log(
-    "DATA:",
-    data
-);
 
     await window.firebaseApi.setDoc(
         ref,
@@ -1698,66 +1679,52 @@ const project =
         ];
 
 
-console.log(
-    "Project:",
-    project
-);
-
-console.log(
-    "Path:",
-    path
-);
-
-
     const parts =
         path.split("/");
 
-const cloud =
+    const cloud =
     await loadPhotoData(
         project,
         path
     );
 
-console.log(
-    "Cloud:",
-    cloud
+renderAttributes(
+    cloud,
+    path
 );
 
-    document
-        .getElementById(
-            "info-file"
-        )
-        .textContent =
-        parts[
-            parts.length - 1
-        ];
-
-    document
-        .getElementById(
-            "info-date"
-        )
-        .textContent =
-        parts[
-            parts.length - 3
-        ];
-
-
-    document
-        .getElementById(
-            "info-comment"
-        )
-        .textContent =
-            cloud?.comment || "—";
-
-
-        if (cloud) {
-
-            console.log(
-                "Firebase:",
-                cloud
-            );
-
 }
+
+
+function renderAttributes(
+    cloud,
+    path
+) {
+
+    const container =
+        document.getElementById(
+            "viewer-attributes"
+        );
+
+    container.innerHTML = "";
+
+    addAttribute(
+        container,
+        "FILE",
+        path.split("/").pop()
+    );
+
+    addAttribute(
+        container,
+        "DATE",
+        path.split("/")[1]
+    );
+
+    addAttribute(
+        container,
+        "COMMENT",
+        cloud?.comment || "—"
+    );
 
 }
 
